@@ -1,0 +1,110 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100%;
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    background-color: teal;
+}
+.contain-img{
+    flex: 1;
+    background-color: red;
+}
+.contain-form{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+    align-items: center;
+
+}
+
+form{
+    width: 80%;
+    height: 95vh;
+    border-radius: 20px;
+    background-color: white;
+}
+h1{
+
+    text-align: center;
+    margin-top: 30px;
+}
+.infor-form{
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+.infor-name{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.first-name{
+    display: flex;
+    flex-direction: column;
+}
+.last-name{
+    display: flex;
+    flex-direction: column;
+}
+input[type = "text"] {
+    padding: 12px;
+    border-radius: 10px;
+    width: 255px;
+}
+
+.email{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+input[type = "email"] {
+    padding: 12px;
+    border-radius: 10px;
+    width: 540px;
+}
+.password{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+input[type = "password"] {
+    padding: 12px;
+    border-radius: 10px;
+    width: 540px;
+}
+p{
+   margin-top: 10px;
+}
+.login{
+    margin-top: 50px;
+}
+#btn{
+    color: white;
+    background-color: orange;
+    padding: 12px;
+    width: 540px;
+    border-radius: 10px;
+}
+.signemail{
+    margin-top: 20px;
+}
+#btnlogin{
+    padding: 12px;
+    width: 540px;
+    border-radius: 10px;
+    background-color: white;
+}
+i{
+    color: #FF5733;
+    margin-right: 10px;
+}
