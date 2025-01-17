@@ -12,11 +12,11 @@ body{
 .container{
     height: 100vh;
     display: flex;
-    background-color: teal;
+    background-image: url("/images/login.png");
+    background-size: cover;
 }
 .contain-img{
     flex: 1;
-    background-color: red;
 }
 .contain-form{
     flex: 1;
@@ -29,7 +29,7 @@ body{
 
 form{
     width: 80%;
-    height: 95vh;
+    height: 90vh;
     border-radius: 20px;
     background-color: white;
 }
@@ -107,4 +107,8 @@ p{
 i{
     color: #FF5733;
     margin-right: 10px;
+}
+#p{
+    text-align: center;
+    margin-top: 50px;
 }
