@@ -78,7 +78,6 @@ function createCard(){
                     icon: "success"
                 });
             } else if (
-               
                 result.dismiss === Swal.DismissReason.cancel
                 ) {
                   swalWithBootstrapButtons.fire({
@@ -90,13 +89,12 @@ function createCard(){
               });              
         })
         pFolder.addEventListener("dblclick",()=>{
+            const inputName=document.querySelector("#name")
             const formModal = document.getElementById("formModal");
             const formOverlay = document.getElementById("formOverlay");
-            const closeFormButton = document.getElementById("closeFormButton");
+          
             const popupForm = document.getElementById("popupForm");
-            const inputName=document.querySelector("#name")
             
-
             pFolder.addEventListener("click", () => {
                 formModal.style.display = "block";
                 formOverlay.style.display = "block";
@@ -105,14 +103,17 @@ function createCard(){
                 event.preventDefault(); // Prevent page reload
                 formModal.style.display = "none"; // Close the modal
                 formOverlay.style.display = "none";
-            });
-            inputName.addEventListener("change",()=>{
-                pFolder.textContent=inputName.value  
-            })
-        })
+              });
+              inputName.addEventListener("change",(e)=>{
+              
+                 pFolder.textContent=inputName.value 
+                
+              })
+          })
     })
 }
 createCard()
+
 
 
 

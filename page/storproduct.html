@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,10 +10,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script defer src="../js/product.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
-
 <body>
     <nav id="nav-bar">
         <div class="nav-bar-left">
@@ -25,10 +23,10 @@
             <h2 id=""></h2>
         </div>
         <div class="nav-bar-right">
-            <i id="uer-icon" class="fa-solid fa-user"></i>
+            <i id="uer-icon" class="fa-solid fa-user"></i>  
         </div>
     </nav>
-    <aside id="sideBar">
+    <aside id="sideBar">    
         <div class="tage">
             <h4 id="sideBar-link">Back</h4>
         </div>
@@ -45,48 +43,45 @@
             <h4 id="sideBar-link">Out Coming</h4>
         </div>
     </aside>
-
-
-    <div class="container">
-        <div class="main-store">
-            <p id="main-store">Main Store</p>
-        </div>
-        <div class="card-diragetorys">
-            <!-- <div class="diragetory">
-                <div class="folder-name">
-                    <i class="fa-solid fa-folder"></i>
-                    <p id="add-name-folder">New folder</p>
-                </div>
-                <div class="data">
-                    <p id="add-date">1/12/2025</p>
-                </div>
-                <div class="total-product">
-                    <p id="add-total-product">100</p>
-                    <i class="fa-solid fa-square-poll-vertical"></i>
-                </div>
-                <div class="delet-product">
-                    <button id="btn-trush">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </div> -->
-        </div>
-        <div class="create-btn">
-            <button id="btn">+</button>
-        </div>
-    </div>
-
-
-    <div id="formOverlay"></div>
-    <div id="formModal">
+    
+    
+    <div id="formCreateProduct"></div>
+    <div id="formModalProduct">
         <h2>Change your folder name:</h2>
-        <form id="popupForm">
-            <label for="name">Enter here</label>
-            <input type="text" id="name" name="name" required><br><br>
-            <button type="submit">Submit</button>
+        <form id="form-popupForm">
+            <input type="text" id="name" name="name" placeholder="Product Name" required><br><br>
+            <input type="number" id="priceProduct" placeholder="Price">
+            <input type="number" id="Quantity" placeholder="Quantity">
+            <input type="file" id="upload-filde" placeholder="Upload image">
+            <button type="submit" id="submit-btn-product">Submit</button>
         </form>
-    </div>
+    </div> 
     <div class="mainStorPrduct">
+        <div class="formStoreProduct">
+            <button id="btn-fidnProduct">Find Product</button>
+            <input type="text" id="searchInput" placeholder="Search " />
+        </div>
+        <div class="cardProductStore">
+            <table>
+                <thead>
+                    <tr id="trheading">
+                        <th>ID</th>
+                        <th>Product Nmae</th>
+                        <th>Date</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Trush</th>
+                    </tr>
+                </thead>
+                <tbody id="product-table">
+                </tbody>    
+            </table>
+        </div>
+       
+        <div class="create-btn">
+            <button id="btn-create">+</button>
+        </div>
     </div>
 </body>
-
 </html>
