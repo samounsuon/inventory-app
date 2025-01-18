@@ -98,5 +98,12 @@ body{
     display: flex;
     gap: 30px;
 }
-
+.nav-bar-center{
+    font-size: 25px;
+    text-align: center;
+    margin-right: 90px;
+}
+.main-store{
+    font-size: 26px;
+}
 
