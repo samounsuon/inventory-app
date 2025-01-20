@@ -14,6 +14,8 @@ body{
     justify-content: space-between;
     align-items: center;
     padding: 0px 30px;
+   
+    /* width: 100%; */
 }
 
 .nav-bar-left{
@@ -47,6 +49,7 @@ body{
 }
 
 #sideBar{
+    top: 30%;
     position: fixed;
     width: 10%;
     display: flex;
@@ -73,11 +76,23 @@ body{
     border-radius: 0px 0px 10px 0px;
     
 }
+.tage:nth-child(1){
+    /* border-bottom: none; */
+    border-radius: 0px 10px 0px 0px;
+    
+}
 .tage:hover{
-    background-color: gray;
+    background-color:rgb(76, 152, 152);
 
 }
-
+#sideBar a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+#sideBar a:hover{
+    
+    color: rgb(255, 255, 255);
+}
 #sideBar-link{
     padding-left: 10px;
 }

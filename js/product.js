@@ -1,4 +1,3 @@
-
 function navbar() {
   const menuIcon = document.querySelector("#menu");
   const sideBar = document.getElementById("sideBar");
@@ -6,7 +5,6 @@ function navbar() {
     sideBar.classList.toggle("hidden");
   });
 }
-
 navbar(); 
 
 const btnCreate = document.getElementById("btn");
@@ -35,7 +33,7 @@ function loadFromLocalStorage() {
 }
 
 
-function createFolderElement(name = "New folder", date = null, totalProduct = 0) {
+function createFolderElement(name = "New folder", date = null, totalProduct = 2) {
   const diragetory = document.createElement("div");
   diragetory.className = "diragetory";
 
