@@ -1,0 +1,118 @@
+body{
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+#nav-bar{
+    background-color: #029588;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 30px;
+}
+
+.nav-bar-left{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+.fa-solid{
+    padding: 5px ;  
+    width: 20px;
+    height: 20px; 
+    color: rgb(255, 255, 255);
+    border: solid 1px ;
+}
+#suer-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+}
+#btn-user{
+    background: none;
+    border: none;
+    
+}
+#btn-user:hover{
+    color: red;
+}
+/* end  now bar */ 
+
+.container{
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+}
+.create-btn{
+    position:absolute;
+    top: 89%;
+    left: 94%;
+}
+#btn{
+    background-color: orange;
+    border-radius: 100%;
+    border: none;
+    padding: 10px 15px;  
+    font-size: 20px;
+}
+#btn:hover{
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border:  gray 2px solid;
+}
+.main-store{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5%;
+    background-color: #007E72;
+    color: white;
+    font-size: 25px;
+}
+.outgoing{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    background-color: #19a095;
+    height: 45vh;
+}
+.order{
+    padding: 0px 30px;
+    width: 43%;
+    margin-bottom: 10px;
+}
+.add-product{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+}
+.product-stock{
+    padding: 0px 30px;
+    display: flex; 
+    justify-content: space-between;
+    width: 43%;
+}
+img{
+    width: 50px;
+    height: 50px;
+    border-radius: 60px ;
+    margin-top: 10px;
+}
+
+
+span{
+    color: #007E72;
+}
+input{
+    padding: 5px;
+    border-radius: 5px ;
+    border: none ;
+    width: 98%;
+    background-color: rgb(223, 218, 218);
+    
+}
