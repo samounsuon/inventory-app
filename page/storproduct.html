@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/product.css">
     <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script defer src="../js/product.js"></script>
+    <script defer src="../js/product-store.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -28,19 +28,30 @@
     </nav>
     <aside id="sideBar">    
         <div class="tage">
-            <h4 id="sideBar-link">Back</h4>
+            <a href="./product.html">
+                <h4 id="sideBar-link">Back</h4>
+            </a>
         </div>
         <div class="tage">
-            <h4 id="sideBar-link">Home</h4>
+            <a href="../home.html">
+                <h4 id="sideBar-link">Home</h4>               
+            </a>
         </div>
         <div class="tage">
-            <h4 id="sideBar-link">product</h4>
+            <a href="./product.html">
+                <h4 id="sideBar-link">Product</h4>
+
+            </a>
         </div>
         <div class="tage">
-            <h4 id="sideBar-link">In Stock</h4>
+            <a href="./incoming.html">
+                <h4 id="sideBar-link">Incoming</h4>
+            </a>
         </div>
         <div class="tage">
-            <h4 id="sideBar-link">Out Coming</h4>
+            <a href="./outgoing.html">
+                <h4 id="sideBar-link">Out Coming</h4>
+            </a>
         </div>
     </aside>
     
@@ -59,14 +70,15 @@
     <div class="mainStorPrduct">
         <div class="formStoreProduct">
             <button id="btn-fidnProduct">Find Product</button>
-            <input type="text" id="searchInput" placeholder="Search " />
+            <input type="text" id="searchInput" placeholder="Search " required/>
         </div>
         <div class="cardProductStore">
             <table>
                 <thead>
                     <tr id="trheading">
                         <th>ID</th>
-                        <th>Product Nmae</th>
+                        <th>Product Imgae</th>
+                       
                         <th>Date</th>
                         <th>Quantity</th>
                         <th>Price</th>
@@ -78,7 +90,6 @@
                 </tbody>    
             </table>
         </div>
-       
         <div class="create-btn">
             <button id="btn-create">+</button>
         </div>
