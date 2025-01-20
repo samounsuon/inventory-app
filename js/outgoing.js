@@ -1,3 +1,12 @@
+const getDataFromProduct=localStorage.getItem("1")
+if(getDataFromProduct){
+    const dataFromProduct=JSON.parse(getDataFromProduct)
+    dataFromProduct.forEach(product => {
+        console.log(product)
+    });
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.createElement('div');
     container.className = 'container';
@@ -5,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Outgoing form section
     const outgoing = document.createElement('div');
     outgoing.className = 'outgoing';
-    const fields = ['Document\'s date', 'Document No', 'Customer', 'Discount(%)', 'Product', 'Comment'];
+    const fields = ['Document\' s date', 'Document No', 'Customer', 'Discount(%)', 'Product', 'Comment'];
     const fieldInputs = {};
 
     fields.forEach(field => {
