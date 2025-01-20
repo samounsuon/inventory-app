@@ -25,14 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
     addProduct.className = 'add-product';
 
     const products = [
-        { img: '/image/top.jpg', name: 'Accessories', stock: 17, price: '$23.99/$102.45' },
-        { img: '/image/coca-cola.main-image.290-417.png', name: 'Coca-Cola', stock: 120, price: '$23.99/$102.45' },
-        { img: '/image/10718830EA-checkers515Wx515H.png', name: 'Lays Sour Cream', stock: 60, price: '$23.99/$102.45' },
-        { img: '/image/O_SW_LF_bdb991019d.png', name: 'Oreo', stock: 18, price: '$23.99/$102.45' },
-        { img: '/image/images.jpg', name: 'Tonic', stock: 54, price: '$23.99/$102.45' },
-        { img: '/image/6949.jpg', name: 'Lays Barbecue', stock: 87, price: '$23.99/$102.45' },
-        { img: '/image/1789484621_0340_0340.jpg', name: 'Cowboy Pants', stock: 94, price: '$23.99/$102.45' },
-        { img: '/image/e701b6d6-b5fd-415c-8138-f733f087628c.png', name: 'Shirt', stock: 76, price: '$23.99/$102.45' },
+        { img: '/image/top.jpg', name: 'Accessories', stock: 947, price: '$2,367.5' },
+        { img: '/image/coca-cola.main-image.290-417.png', name: 'Coca-Cola', stock: 532, price: '$1,862' },
+        { img: '/image/10718830EA-checkers515Wx515H.png', name: 'Lays Sour Cream', stock: 7532, price: '$18,076.8' },
+        { img: '/image/O_SW_LF_bdb991019d.png', name: 'Oreo', stock: 1035, price: '$1,656' },
+        { img: '/image/images.jpg', name: 'Tonic', stock: 2412, price: '$4,824' },
+        { img: '/image/6949.jpg', name: 'Lays Barbecue', stock:329, price: '$592.2' },
+        { img: '/image/1789484621_0340_0340.jpg', name: 'Cowboy Pants', stock: 743, price: '$11,145' },
+        { img: '/image/e701b6d6-b5fd-415c-8138-f733f087628c.png', name: 'Shirt', stock: 324, price: '$3,402' },
     ];
 
     const productElements = [];
@@ -79,25 +79,42 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('btn').addEventListener('click', () => {
         // Collect data from input fields
         Object.keys(fieldInputs).forEach(id => {
-            fieldInputs[id] = document.getElementById(id).value;
+            fieldInputs[id] = document.getElementById(id).value.trim();
         });
 
-        // Display the data (simulating sending it somewhere)
         console.log('Form Data:', fieldInputs);
 
-        // Example: Update products dynamically based on the "Product" field
+        // Update product price based on the discount
         const productName = fieldInputs['product'];
         const discount = parseFloat(fieldInputs['discount']) || 0;
+        const documentNo = parseInt(fieldInputs['document-no'], 10); // Convert to integer
+
+        if (isNaN(documentNo) || documentNo <= 0) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Please enter a valid number in "Document No".',
+                icon: 'error',
+            });
+            return;
+        }
 
         const productToUpdate = productElements.find(el => el.product.name.toLowerCase() === productName.toLowerCase());
         if (productToUpdate) {
-            // Apply discount to the price
-            const [currentPrice] = productToUpdate.product.price.split('/');
-            const discountedPrice = (parseFloat(currentPrice.replace('$', '')) * (1 - discount / 100)).toFixed(2);
+            const currentPrice = parseFloat(productToUpdate.product.price.replace('$', ''));
+            const discountedPrice = (currentPrice * (1 - discount / 100)).toFixed(2);
+
+            if (productToUpdate.product.stock < documentNo) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: `Not enough stock for ${productName}. Available: ${productToUpdate.product.stock}`,
+                    icon: 'error',
+                });
+                return;
+            }
 
             // Update the stock and price
-            productToUpdate.product.stock -= 1; // Assuming 1 product sold
-            productToUpdate.product.price = `$${discountedPrice}/${currentPrice}`;
+            productToUpdate.product.stock -= documentNo;
+            productToUpdate.product.price = `$${discountedPrice}`;
             productToUpdate.stockElement.textContent = productToUpdate.product.stock;
             productToUpdate.priceElement.textContent = productToUpdate.product.price;
 
@@ -115,3 +132,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
