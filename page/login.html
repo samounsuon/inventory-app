@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login form</title>
+    <title>Login</title>
     <link rel="stylesheet" href="/css/login.css" />
+    <script src="/js/login.js" defer></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -12,45 +13,35 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
   </head>
   <body>
-    <div class="container">
-      <div class="contain-img"></div>
-      <div class="contain-form">
-        <form action="">
-          <h1>Create account</h1>
-          <div class="infor-form">
-            <div class="infor-name">
-              <div class="first-name">
-                <label for="">First Name</label>
-                <input type="text" placeholder="Enter your first name" />
-              </div>
-              <div class="last-name">
-                <label for="">Last Name</label>
-                <input type="text" placeholder="Enter your last name" />
-              </div>
-            </div>
-            <div class="email">
-              <label for="">Email</label>
-              <input type="email" name="email" placeholder="Email" />
-            </div>
-            <div class="password">
-              <label for="">Password</label>
-              <input type="password" name="password" placeholder="Password" />
-              <p>Forget password!</p>
-            </div>
-            <div class="login">
-              <button id="btn"><b>Login</b></button>
-            </div>
-            <div class="signemail">
-              <button id="btnlogin">
-                <i class="fa-solid fa-envelope"></i>Signin with Email
-              </button>
-            </div>
-            <p id="p">Don't have a account? <b>Sign Up for free</b></p>
+    <div class="login-container">
+      <div class="login-left">
+        <form id="login-form">
+          <h1>Login</h1>
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="email" required  />
           </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="password"
+              required
+            />
+          </div>
+          <a href="#" class="forgot-password">Forget password!</a>
+          <button type="submit" id="sumbit" class="btn primary">Let's start</button>
+          <button type="button" class="btn secondary"><i class="fa-solid fa-envelope"></i>Sign in with email</i></button>
         </form>
+      </div>
+      <div class="login-right">
+       <img src="/images/management.jpg" alt="">
       </div>
     </div>
   </body>
 </html>
+
