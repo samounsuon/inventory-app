@@ -1,0 +1,162 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    height: 100vh;
+}
+#nav-bar{
+    background-color: #029588;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 30px;
+}
+
+.nav-bar-left{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+.fa-solid{
+    padding: 5px ;  
+    width: 20px;
+    height: 20px; 
+    color: rgb(0, 0, 0);
+
+}
+#user-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    color: black;
+    border: none;
+    
+}
+#user-icon:hover{
+    color:white    ;
+    font-size: 24px;
+}
+#btn-user:hover{
+    color: red;
+}
+
+
+aside{
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+}
+.aside-left{
+    flex: 0.5;
+    background-color: blue;
+}
+
+.icon-top{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding: 10px;
+    gap: 15px;
+
+}
+.icon-center{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding: 10px;
+    gap: 15px;
+}
+.icont-bottom{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding: 10px;
+    gap: 15px;
+}
+i{
+    font-size: 16px;
+}
+.aside-right{
+    flex: 3;
+    background-color: rgba(146, 62, 62, 0.055);
+}
+#task{
+    margin: 10px;
+}
+.aside-card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 312px;
+    height: 180px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.product-alert{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 50px;
+}
+#alert{
+    padding: 15px;
+    
+}
+.alert-incoming{
+    width: 635px;
+    height: 130px;
+    background-color: gray;
+    border-radius: 10px;
+}
+.alert-outcoming{
+    width: 635px;
+    height: 130px;
+    background-color: gray;
+    border-radius: 10px;
+}
+.alert-goods{
+    width: 635px;
+    height: 130px;
+    background-color: gray;
+    border-radius: 10px;
+}
+.alert-report{
+    width: 635px;
+    height: 130px;
+    background-color: gray;
+    border-radius: 10px;
+}
+
+#report{
+    width: 100px;
+    height: 90px;
+}
+#incoming{
+    width: 100px;
+    height: 90px;
+}
+#outcoming{
+    width: 100px;
+    height: 90px;
+}
+#goods{
+    width: 100px;
+    height: 90px;
+}
