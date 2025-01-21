@@ -17,7 +17,8 @@ function table() {
     const submitBtn = document.querySelector("#submit-btn-product");
     const searchInput = document.getElementById("searchInput"); // Search input field
 
-    let productId = 1;
+    // Retrieve the last productId from localStorage, default to 1 if not found
+    let productId = localStorage.getItem("lastProductId") || 1;
 
     // Display the form when Create button is clicked
     btnCreate.addEventListener("click", () => {
@@ -39,6 +40,9 @@ function table() {
         const tdId = document.createElement("td");
         const tdNameProductImage = document.createElement("td");
         tdNameProductImage.id = "tdNameProductImage";
+
+        const p = document.createElement("p");
+
         const date = document.createElement("td");
         const tdQuantity = document.createElement("td");
         const tdPrice = document.createElement("td");
@@ -57,7 +61,8 @@ function table() {
                 image.src = imageSrc;
                 saveProductToLocalStorage(getIndex, {
                     tdId: tdId.textContent,
-                    tdNameProductImage: `<img src="${imageSrc}" id="productImage"/> <p>${inputNameProduct.value}</p>`,
+                    tdNameProductImage: `<img src="${imageSrc}" id="productImage"/>`,
+                    p: `<p>${inputNameProduct.value}</p>`,
                     date: date.textContent,
                     tdQuantity: tdQuantity.textContent,
                     tdPrice: tdPrice.textContent,
@@ -68,9 +73,7 @@ function table() {
             reader.readAsDataURL(file);
         }
 
-        const p = document.createElement("p");
         tdNameProductImage.appendChild(image);
-        tdNameProductImage.appendChild(p);
 
         const inputNameProduct = document.querySelector("#name");
         const productPrice = document.querySelector("#priceProduct");
@@ -84,11 +87,11 @@ function table() {
         tdId.textContent = productId++;
         p.textContent = inputNameProduct.value;
         date.textContent =
-        time.getDate() +
-        "/" +
-        (time.getMonth() + 1) +
-        "/" +
-        time.getFullYear(),
+            time.getDate() +
+            "/" +
+            (time.getMonth() + 1) +
+            "/" +
+            time.getFullYear();
         tdQuantity.textContent = quantityProduct.value;
         tdPrice.textContent = productPrice.value + "៛";
         tdTotal.textContent =
@@ -96,6 +99,7 @@ function table() {
 
         tr.appendChild(tdId);
         tr.appendChild(tdNameProductImage);
+        tr.appendChild(p); // Correct placement of product name
         tr.appendChild(date);
         tr.appendChild(tdQuantity);
         tr.appendChild(tdPrice);
@@ -108,6 +112,9 @@ function table() {
             tr.remove();
             removeProductFromLocalStorage(getIndex, tdId.textContent); // Remove from localStorage as well
         });
+
+        // Save the updated productId to localStorage
+        localStorage.setItem("lastProductId", productId);
     });
 
     // Save product data to localStorage
@@ -134,6 +141,7 @@ function table() {
             const tdId = document.createElement("td");
             const tdNameProductImage = document.createElement("td");
             tdNameProductImage.id = "tdNameProductImage";
+            const p = document.createElement("td");
             const date = document.createElement("td");
             const tdQuantity = document.createElement("td");
             const tdPrice = document.createElement("td");
@@ -146,6 +154,7 @@ function table() {
 
             tdId.textContent = product.tdId;
             tdNameProductImage.innerHTML = product.tdNameProductImage;
+            p.innerHTML = product.p; // Correctly set the product name as HTML
             date.textContent = product.date;
             tdQuantity.textContent = product.tdQuantity;
             tdPrice.textContent = product.tdPrice;
@@ -153,6 +162,7 @@ function table() {
 
             tr.appendChild(tdId);
             tr.appendChild(tdNameProductImage);
+            tr.appendChild(p);
             tr.appendChild(date);
             tr.appendChild(tdQuantity);
             tr.appendChild(tdPrice);
@@ -160,7 +170,7 @@ function table() {
             tr.appendChild(trushProduct);
             tbody.appendChild(tr);
 
-            // Delete product from both table and localStorage when trash icon is clicked
+            // Delete product when trash icon is clicked
             tdI.addEventListener("click", () => {
                 tr.remove();
                 removeProductFromLocalStorage(getIndex, product.tdId);
@@ -173,7 +183,7 @@ function table() {
         const query = searchInput.value.toLowerCase(); // Get the search query and convert to lowercase
         const products = JSON.parse(localStorage.getItem(getIndex)) || [];
         const filteredProducts = products.filter((product) =>
-            product.tdNameProductImage.toLowerCase().includes(query) // Check if product name matches the query
+            product.p.toLowerCase().includes(query) // Check if product name matches the query
         );
 
         // Re-render the table with filtered products
@@ -184,6 +194,7 @@ function table() {
             const tdId = document.createElement("td");
             const tdNameProductImage = document.createElement("td");
             tdNameProductImage.id = "tdNameProductImage";
+            const p = document.createElement("td");
             const date = document.createElement("td");
             const tdQuantity = document.createElement("td");
             const tdPrice = document.createElement("td");
@@ -196,6 +207,7 @@ function table() {
 
             tdId.textContent = product.tdId;
             tdNameProductImage.innerHTML = product.tdNameProductImage;
+            p.innerHTML = product.p; // Correctly set the product name as HTML
             date.textContent = product.date;
             tdQuantity.textContent = product.tdQuantity;
             tdPrice.textContent = product.tdPrice;
@@ -203,6 +215,7 @@ function table() {
 
             tr.appendChild(tdId);
             tr.appendChild(tdNameProductImage);
+            tr.appendChild(p);
             tr.appendChild(date);
             tr.appendChild(tdQuantity);
             tr.appendChild(tdPrice);
@@ -210,7 +223,7 @@ function table() {
             tr.appendChild(trushProduct);
             tbody.appendChild(tr);
 
-            // Delete product from both table and localStorage when trash icon is clicked
+            // Delete product when trash icon is clicked
             tdI.addEventListener("click", () => {
                 tr.remove();
                 removeProductFromLocalStorage(getIndex, product.tdId);
