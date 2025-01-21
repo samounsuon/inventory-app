@@ -31,9 +31,10 @@ function loadFromLocalStorage() {
       createFolderElement(folder.folderName, folder.date, folder.totalProduct);
   });
 }
+// console.log(folders)
 
 
-function createFolderElement(name = "New folder", date = null, totalProduct = 2) {
+function createFolderElement(name = "New folder", date = null, totalProduct = 0) {
   const diragetory = document.createElement("div");
   diragetory.className = "diragetory";
 
