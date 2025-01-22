@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/document.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../css/product.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script defer src="../js/document.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/outgoing.css">
-    <script src="/js/outgoing.js"></script>
 </head>
 <body>
     <nav id="nav-bar">
         <div class="nav-bar-left">
-            <i class="material-icons">menu</i>
-            <h2>Outgoing</h2>
+            <i id="menu" class="material-icons">menu</i>
+            <h2>Create Product</h2>
         </div>
-
         <div class="nav-bar-center">
+            <h2 id=""></h2>
         </div>
         <div class="nav-bar-right">
-            <button id="btn-user"><i id="suer-icon" class="fa-solid fa-user"></i> </button>
+            <i id="uer-icon" class="fa-solid fa-user"></i>  
         </div>
     </nav>
     <aside id="sideBar">    
@@ -53,11 +50,38 @@
             </a>
         </div>
     </aside>
-    
-    <div class="main-store">
-        <h6>Main Stor</h6>
+    <div class="container">
+        <div class="main-store">
+            <p id="main-store">Hist Story</p>
+        </div>
+        <div class="create-btn">
+            <button id="btn">+</button>
+        </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows go here -->
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+           
+        </tbody>
+    </table>
+
 </body>
 </html>
-
