@@ -20,7 +20,7 @@ submitButton.addEventListener("click", (event) => {
   if (!firstName || !lastName || !email || !password) {
     Swal.fire({
       icon: "error",
-      title: "Oops...",
+      title: "Complete your information",
       text: "Please fill in all fields!",
     });
     return;
