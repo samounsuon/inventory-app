@@ -1,8 +1,11 @@
+*{
+    font-family: sans-serif;
+}
 body{
     height: 100vh;
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    
 }
 #nav-bar{
     background-color: #029588;
@@ -11,6 +14,8 @@ body{
     justify-content: space-between;
     align-items: center;
     padding: 0px 30px;
+   
+    /* width: 100%; */
 }
 
 .nav-bar-left{
@@ -26,84 +31,170 @@ body{
     color: rgb(255, 255, 255);
     border: solid 1px ;
 }
-#suer-icon{
+#uer-icon{
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 100%;
-}
-#btn-user{
-    background: none;
+    color: black;
     border: none;
     
+}
+#uer-icon:hover{
+    color:white    ;
+    font-size: 24px;
 }
 #btn-user:hover{
     color: red;
 }
-/* end  now bar */ 
 
-.container{
-    height: 90%;
+#sideBar{
+    top: 30%;
+    position: fixed;
+    width: 10%;
     display: flex;
     flex-direction: column;
+    transform: translateX(0); /* Default visible state */
+    transition: transform 0.3s ease;
+    transform: translateX(-100%); /* Move sidebar out of view */
+
 }
+#menu:hover, #btn-user:hover{
+    color: white;
+    font-size: 30px;
+}
+#sideBar.hidden{
+    transform: translateX(0%); /* Move sidebar out of view */
+}
+
+.tage{
+    background-color: #20B2AA;
+    border-bottom: solid 1px rgb(212, 212, 212);
+}
+.tage:nth-child(5){
+    /* border-bottom: none; */
+    border-radius: 0px 0px 10px 0px;
+    
+}
+.tage:nth-child(1){
+    /* border-bottom: none; */
+    border-radius: 0px 10px 0px 0px;
+    
+}
+.tage:hover{
+    background-color:rgb(76, 152, 152);
+
+}
+#sideBar a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+#sideBar a:hover{
+    
+    color: rgb(255, 255, 255);
+}
+#sideBar-link{
+    padding-left: 10px;
+}
+/* end */
+.mainStorPrduct{
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+
+
+}
+/* form input  */
+#form{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2%;
+    /* width: 9%; */
+    
+}
+.input{
+    height: 30px;
+    width: 43%;
+    margin: 10px;
+    border: none;
+    border-bottom: solid 2px;
+}
+
+/* btn sent */
 .create-btn{
-    position:absolute;
+    position:fixed;
     top: 85%;
-    left: 95%;
+    left: 93%;
 }
 #btn{
     background-color: orange;
     border-radius: 100%;
     border: none;
-    padding: 10px 15px;  
+    padding: 13px 15px;  
     font-size: 20px;
 }
 #btn:hover{
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-    border:  gray 2px solid;
+    box-shadow: rgba(67, 66, 60, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border:  rgb(255, 185, 8) 2px solid;
 }
-.main-store{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 5%;
-    background-color: #007E72;
+.fa-send{
     color: white;
 }
-.fa-folder{
-    color: #007E72;
-    font-size: 30px;
-    border: none;
-
-}
-.card-diragetorys{
+.form-store-data{
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: space-between;
+    justify-content: center;
+    padding:0px 4%;
 }
-.diragetory{
-    padding: 0px 30px;
-    display: flex; 
-    align-items: center;
-    justify-content: space-between;
-    width: 43%;
+/* table */
+table {
+    border-collapse: collapse; 
+    width: 100%; 
+    margin: 20px 0;
+    background-color: #ffffff; 
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
 
+th, td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 10px; 
+    font-size: 14px; 
 }
-.diragetory:hover{
-    background-color:   rgba(128, 128, 128, 0.187);
+
+th {
+    background-color: #029588;
+    color: white; 
+    font-weight: bold;
+    text-transform: uppercase; 
 }
-.folder-name{
+
+tr:nth-child(even) {
+    background-color: #f9f9f9; 
+}
+
+tr:hover {
+    background-color: rgba(128, 128, 128, 0.1);
+}
+
+td img {
+    width: 50px; 
+}
+
+/* show Total data */
+.showTotalProduct{
     display: flex;
-    gap: 30px;
+    gap: 20px;
+    padding-left: 5%;
 }
-.nav-bar-center{
-    font-size: 25px;
-    text-align: center;
-    margin-right: 90px;
+#tr-hover-samll-than-ten{
+    
+    background: rgb(255, 133, 133);
 }
-.main-store{
-    font-size: 26px;
+#tr-hover-samll-than-ten:hover{
+    
+    background: rgb(255, 188, 188);
 }
-
+#tr-hover-samll-than-tweenty{
+    background-color: orange;
+}
