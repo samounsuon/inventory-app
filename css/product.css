@@ -343,8 +343,6 @@ body{
     width: 85%;
     display: flex;
     justify-content: center;
-    /* margin: auto; */
-    /* align-items: baseline; */
 }
 table {
     border-collapse: collapse; 
@@ -386,17 +384,13 @@ td img {
     border-radius: 10px;
 }
 
-#tdNameProductImage{
-    display: flex;
-    justify-content: flex-start ;
-    align-items: center; 
-    gap: 50px;
-}
+
 #productImage{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
     border-radius: 100%;
+    
 }
 
 #formModalProduct {
