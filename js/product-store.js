@@ -149,7 +149,7 @@
         function loadProductsFromLocalStorage() {
             const products = JSON.parse(localStorage.getItem(getIndex)) || [];
             const tbody = document.getElementById("product-table");
-            tbody.innerHTML = ""; // Clear the table
+            tbody.innerHTML = ""; 
             products.forEach((product) => {
                 const tr = document.createElement("tr");
                 const tdId = document.createElement("td");
