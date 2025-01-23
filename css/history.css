@@ -148,3 +148,16 @@ thead tr ,th {
     padding: 10px 0;
 }
 
+.fa-trash{
+    color: gray;
+    border: none;   
+}
+.fa-trash:hover{
+    color: red;
+}
+td:nth-child(1){
+    text-align: center;
+}
+td:nth-child(7){
+    text-align: center;
+}
