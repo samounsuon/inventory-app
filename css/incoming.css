@@ -30,16 +30,22 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 100%;
+    color: black;
+    border: none;
+    
 }
 #btn-user{
     background: none;
     border: none;
+
+    
     
 }
 #btn-user:hover{
     color: red;
+
 }
+
 /* end  now bar */ 
 
 .container{
@@ -58,6 +64,7 @@ body{
     border: none;
     padding: 10px 15px;  
     font-size: 20px;
+    color: rgb(255, 244, 244);
 }
 #btn:hover{
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
@@ -67,13 +74,13 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 5%;
+    height: 7%;
     background-color: #007E72;
     color: white;
 }
 .fa-folder{
     color: #007E72;
-    font-size: 30px;
+    font-size: 24px;
     border: none;
 
 }
@@ -104,7 +111,8 @@ body{
     margin-right: 90px;
 }
 .main-store{
-    font-size: 26px;
+    font-size: 6px;
+    height: 40px;
 }
 #sideBar{
     top: 30%;
