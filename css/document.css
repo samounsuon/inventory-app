@@ -38,8 +38,6 @@ body{
     border-radius: 100%;
     color: black;
     border: none;
-
-    
     
 }
 #uer-icon:hover{
@@ -48,7 +46,6 @@ body{
 }
 #btn-user:hover{
     color: red;
-
 }
 
 #sideBar{
@@ -99,106 +96,55 @@ body{
 #sideBar-link{
     padding-left: 10px;
 }
-/* end */
-.mainStorPrduct{
-    display: flex;
-    /* justify-content: center; */
-    flex-direction: column;
-
-
-}
-/* form input  */
-#form{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2%;
-    /* width: 9%; */
-    
-}
-.input{
-    height: 30px;
-    width: 43%;
-    margin: 10px;
-    border: none;
-    border-bottom: solid 2px;
-}
-
-/* btn sent */
+/* container */
 .create-btn{
     position:fixed;
     top: 85%;
-    left: 93%;
+    left: 95%;
 }
 #btn{
     background-color: orange;
     border-radius: 100%;
     border: none;
-    padding: 13px 15px;  
+    padding: 10px 15px;  
     font-size: 20px;
-    color: rgb(255, 244, 244);
 }
 #btn:hover{
-    box-shadow: rgba(67, 66, 60, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-    border:  rgb(255, 185, 8) 2px solid;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border:  gray 2px solid;
 }
-.fa-send{
+.main-store{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5%;
+    background-color: #007E72;
     color: white;
 }
-.form-store-data{
-    display: flex;
-    justify-content: center;
-    padding:0px 4%;
+#main-store{
+    font-size: 24px;
 }
-/* table */
+/* Table */
 table {
-    border-collapse: collapse; 
-    width: 100%; 
-    margin: 20px 0;
-    background-color: #ffffff; 
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    width: 100%;
+    border-collapse: collapse;
+    height: 70px;
+    
 }
-
 th, td {
-    border: 1px solid #ddd;
-    text-align: left;
-    padding: 10px; 
-    font-size: 14px; 
+    border: 1px solid #000;
+    padding: 8px;
+
+}
+thead tr ,th {
+    background-color: #cac7c7;
 }
 
-th {
-    background-color: #029588;
-    color: white; 
-    font-weight: bold;
-    text-transform: uppercase; 
+.header-green {
+    background-color: #009688;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    padding: 10px 0;
 }
 
-tr:nth-child(even) {
-    background-color: #f9f9f9; 
-}
-
-tr:hover {
-    background-color: rgba(128, 128, 128, 0.1);
-}
-
-td img {
-    width: 50px; 
-}
-
-/* show Total data */
-.showTotalProduct{
-    display: flex;
-    gap: 20px;
-    padding-left: 5%;
-}
-#tr-hover-samll-than-ten{
-    
-    background: rgb(255, 133, 133);
-}
-#tr-hover-samll-than-ten:hover{
-    
-    background: rgb(255, 188, 188);
-}
-#tr-hover-samll-than-tweenty{
-    background-color: orange;
-}
