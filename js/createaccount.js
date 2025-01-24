@@ -1,70 +1,72 @@
+const form = document.querySelector('form');
+const firstNameInput = document.getElementById('firstname');
+const lastNameInput = document.getElementById('lastname');
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
 
-// Get references to HTML elements
-const submitButton = document.getElementById("submit");
-const firstNameInput = document.getElementById("firstname");
-const lastNameInput = document.getElementById("lastname");
-const emailInput = document.getElementById("email");
-const passwordInput = document.getElementById("password");
 
-// Add event listener to the "Create" button
-submitButton.addEventListener("click", (event) => {
-  event.preventDefault(); // Prevent the form's default submission behavior
+form.addEventListener('submit', function (e) {
 
-  // Get user input values
-  const firstName = firstNameInput.value.trim();
-  const lastName = lastNameInput.value.trim();
-  const email = emailInput.value.trim();
-  const password = passwordInput.value.trim();
+  e.preventDefault();
 
-  // Validate inputs
-  if (!firstName || !lastName || !email || !password) {
+
+  const userData = {
+    firstName: firstNameInput.value.trim(),
+    lastName: lastNameInput.value.trim(),
+    email: emailInput.value.trim(),
+    password: passwordInput.value.trim()
+  };
+
+  if (!userData.firstName || !userData.lastName || !userData.email || !userData.password) {
     Swal.fire({
-      icon: "error",
-      title: "Complete your information",
-      text: "Please fill in all fields!",
+      icon: 'error',
+      title: 'Incomplete Form!',
+      html: '<div style="padding: 10px; border-radius: 15px; background-color: #f8d7da; color: #721c24;">' +
+            '<strong>Oh no!</strong> Please fill out all fields before submitting.' +
+            '</div>',
+      confirmButtonText: 'Retry',
+      confirmButtonColor: '#d33', 
+      background: '#ffe6e6', 
+      customClass: {
+        popup: 'rounded-popup' 
+      }
     });
     return;
   }
 
-  // Check if the user already exists in localStorage
-  const existingData = localStorage.getItem("userData");
-  if (existingData) {
-    const storedUser = JSON.parse(existingData);
-    if (storedUser.email === email) {
-      Swal.fire({
-        icon: "warning",
-        title: "Account Exists",
-        text: "An account with this email already exists. Please use a different email.",
-      });
-      return;
-    }
-  }
+  let users = JSON.parse(localStorage.getItem('users')) || [];
+  users.push(userData);
+  localStorage.setItem('users', JSON.stringify(users));
 
-  // Create a user object
-  const userData = {
-    firstName,
-    lastName,
-    email,
-    password, // Note: Avoid storing passwords in plain text in real applications
-  };
-
-  // Store user data in local storage
-  localStorage.setItem("userData", JSON.stringify(userData));
-
-  // Show success message
   Swal.fire({
-    icon: "success",
-    title: "Account Created",
-    text: `Welcome, ${firstName} ${lastName}!`,
+    icon: 'success',
+    title: 'Account Created!',
+    html: '<div style="padding: 10px; border-radius: 15px; background-color: #d4edda; color: #155724;">' +
+          'Your account has been created successfully.' +
+          '</div>',
+    confirmButtonText: 'Go to Home',
+    confirmButtonColor: '#28a745', 
+    background: '#e9f7ef', 
+    customClass: {
+      popup: 'rounded-popup'
+    }
+  }).then(() => {
+ 
+    window.location.href = './home.html'; 
   });
-  
-  firstNameInput.value = "";
-  lastNameInput.value = "";
-  emailInput.value = "";
-  passwordInput.value = "";
 
-  // Redirect to the login page
-  setTimeout(() => {
-    window.location.href = "./page/home.html";
-  }, 2000);
+
+  firstNameInput.value = '';
+  lastNameInput.value = '';
+  emailInput.value = '';
+  passwordInput.value = '';
 });
+
+const style = document.createElement('style');
+style.textContent = `
+  .swal2-popup.rounded-popup {
+    border-radius: 20px !important; /* Rounded edges for alert box */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for 3D effect */
+  }
+`;
+document.head.appendChild(style);
