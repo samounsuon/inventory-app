@@ -3,16 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/history.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../css/incoming.css">
-    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+    <script defer src="../js/history.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script defer src="../js/incoming.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 <body>
     <nav id="nav-bar">
@@ -30,7 +25,7 @@
     <aside id="sideBar">    
         
         <div class="tage">
-            <a href="../home.html">
+            <a href="./home.html">
                 <h4 id="sideBar-link">Home</h4>               
             </a>
         </div>
@@ -49,37 +44,34 @@
             <a href="./outgoing.html">
                 <h4 id="sideBar-link">Out Coming</h4>
             </a>
-        </div>  
+        </div>
         <div class="tage">
             <a href="./history.html">
                 <h4 id="sideBar-link">History</h4>
             </a>
         </div>
     </aside>
-
-    <div class="mainStorPrduct">
-        
-        
-        <div class="form-store-data">
-            <table>
-                <thead>
-                    <tr id="trheading">
-                        <th>ID</th>
-                        <!-- <th>Product Image</th> -->
-                        <th>Product Name</th>
-
-                        <th>Date</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody id="product-table">
-                  
-                </tbody>    
-            </table>
+    <div class="container">
+        <div class="main-store">
+            <p id="main-store">Hist Story</p>
         </div>
-        
     </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Trush</th>
+            </tr>
+        </thead>
+        <tbody>
+                     
+        </tbody>
+    </table>
+
 </body>
 </html>

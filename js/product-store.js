@@ -1,5 +1,3 @@
-const getIndex = localStorage.getItem("selectedFolderIndex"); // Get the current index
-
 function navbar() {
     const menuIcon = document.querySelector("#menu");
     const sideBar = document.getElementById("sideBar");
@@ -17,7 +15,8 @@ function table() {
     const submitBtn = document.querySelector("#submit-btn-product");
     const searchInput = document.getElementById("searchInput"); // Search input field
 
-    let productId = 1;
+    // Initialize an array to store products in memory
+    let products = JSON.parse(localStorage.getItem("products")) || []; // Load products from localStorage if available
 
     // Display the form when Create button is clicked
     btnCreate.addEventListener("click", () => {
@@ -32,20 +31,13 @@ function table() {
         formCreateProducts.style.display = "none";
     });
 
-    // Handle form submission and save data to localStorage
+    // Handle form submission and save data to memory
     submitBtn.addEventListener("click", () => {
-        const tbody = document.getElementById("product-table");
-        const tr = document.createElement("tr");
-        const tdId = document.createElement("td");
-        const tdNameProductImage = document.createElement("td");
-        tdNameProductImage.id = "tdNameProductImage";
-        const date = document.createElement("td");
-        const tdQuantity = document.createElement("td");
-        const tdPrice = document.createElement("td");
-        const tdTotal = document.createElement("td");
-        const image = document.createElement("img");
-        image.id = "productImage";
         const uploadField = document.querySelector("#upload-filde");
+        const inputNameProduct = document.querySelector("#name");
+        const productPrice = document.querySelector("#priceProduct");
+        const quantityProduct = document.querySelector("#Quantity");
+        const time = new Date();
 
         // Convert image to base64 if there is a file uploaded
         let imageSrc = "";
@@ -54,86 +46,65 @@ function table() {
             const reader = new FileReader();
             reader.onloadend = function () {
                 imageSrc = reader.result; // Base64 string
-                image.src = imageSrc;
-                saveProductToLocalStorage(getIndex, {
-                    tdId: tdId.textContent,
-                    tdNameProductImage: `<img src="${imageSrc}" id="productImage"/> <p>${inputNameProduct.value}</p>`,
-                    date: date.textContent,
-                    tdQuantity: tdQuantity.textContent,
-                    tdPrice: tdPrice.textContent,
-                    tdTotal: tdTotal.textContent,
-                    trushProduct: trushProduct.innerHTML,
+
+                // Save product to memory
+                saveProductToMemory({
+                    name: inputNameProduct.value,
+                    image: imageSrc,
+                    date:
+                        time.getDate() +
+                        "/" +
+                        (time.getMonth() + 1) +
+                        "/" +
+                        time.getFullYear(),
+                    quantity: quantityProduct.value,
+                    price: productPrice.value + "៛",
+                    total: (quantityProduct.value * productPrice.value).toFixed(2) + "៛",
                 });
             };
             reader.readAsDataURL(file);
+        } else {
+            // Save product to memory without an image
+            saveProductToMemory({
+                name: inputNameProduct.value,
+                image: "",
+                date:
+                    time.getDate() +
+                    "/" +
+                    (time.getMonth() + 1) +
+                    "/" +
+                    time.getFullYear(),
+                quantity: quantityProduct.value,
+                price: productPrice.value + "៛",
+                total: (quantityProduct.value * productPrice.value).toFixed(2) + "៛",
+            });
         }
-
-        const p = document.createElement("p");
-        tdNameProductImage.appendChild(image);
-        tdNameProductImage.appendChild(p);
-
-        const inputNameProduct = document.querySelector("#name");
-        const productPrice = document.querySelector("#priceProduct");
-        const quantityProduct = document.querySelector("#Quantity");
-        const time = new Date();
-        const trushProduct = document.createElement("td");
-        const tdI = document.createElement("i");
-        tdI.className = "fa-solid fa-trash";
-        trushProduct.appendChild(tdI);
-
-        tdId.textContent = productId++;
-        p.textContent = inputNameProduct.value;
-        date.textContent =
-        time.getDate() +
-        "/" +
-        (time.getMonth() + 1) +
-        "/" +
-        time.getFullYear(),
-        tdQuantity.textContent = quantityProduct.value;
-        tdPrice.textContent = productPrice.value + "៛";
-        tdTotal.textContent =
-            (quantityProduct.value * productPrice.value).toFixed(2) + "៛";
-
-        tr.appendChild(tdId);
-        tr.appendChild(tdNameProductImage);
-        tr.appendChild(date);
-        tr.appendChild(tdQuantity);
-        tr.appendChild(tdPrice);
-        tr.appendChild(tdTotal);
-        tr.appendChild(trushProduct);
-        tbody.appendChild(tr);
-
-        // Delete product when trash icon is clicked
-        tdI.addEventListener("click", () => {
-            tr.remove();
-            removeProductFromLocalStorage(getIndex, tdId.textContent); // Remove from localStorage as well
-        });
     });
 
-    // Save product data to localStorage
-    function saveProductToLocalStorage(index, product) {
-        let products = JSON.parse(localStorage.getItem(index)) || [];
+    // Save product data to memory and localStorage
+    function saveProductToMemory(product) {
         products.push(product);
-        localStorage.setItem(index, JSON.stringify(products));
+        localStorage.setItem("products", JSON.stringify(products)); // Store updated products in localStorage
+        renderTable();
     }
 
-    // Remove product from localStorage
-    function removeProductFromLocalStorage(index, productId) {
-        let products = JSON.parse(localStorage.getItem(index)) || [];
-        products = products.filter((product) => product.tdId !== productId);
-        localStorage.setItem(index, JSON.stringify(products));
+    // Remove product from memory and localStorage
+    function removeProductFromMemory(index) {
+        products.splice(index, 1); // Remove the product at the given index
+        localStorage.setItem("products", JSON.stringify(products)); // Store updated products in localStorage
+        renderTable();
     }
 
-    // Load data from localStorage and display it in the table
-    function loadProductsFromLocalStorage() {
-        const products = JSON.parse(localStorage.getItem(getIndex)) || [];
+    // Render table with products from memory
+    function renderTable() {
         const tbody = document.getElementById("product-table");
         tbody.innerHTML = ""; // Clear the table
-        products.forEach((product) => {
+        products.forEach((product, index) => {
             const tr = document.createElement("tr");
             const tdId = document.createElement("td");
             const tdNameProductImage = document.createElement("td");
             tdNameProductImage.id = "tdNameProductImage";
+            const p = document.createElement("td");
             const date = document.createElement("td");
             const tdQuantity = document.createElement("td");
             const tdPrice = document.createElement("td");
@@ -144,15 +115,19 @@ function table() {
             tdI.className = "fa-solid fa-trash";
             trushProduct.appendChild(tdI);
 
-            tdId.textContent = product.tdId;
-            tdNameProductImage.innerHTML = product.tdNameProductImage;
+            tdId.textContent = index + 1; // Use sequential numbering based on array index
+            tdNameProductImage.innerHTML = product.image
+                ? `<img src="${product.image}" id="productImage"/>`
+                : "No Image";
+            p.textContent = product.name;
             date.textContent = product.date;
-            tdQuantity.textContent = product.tdQuantity;
-            tdPrice.textContent = product.tdPrice;
-            tdTotal.textContent = product.tdTotal;
+            tdQuantity.textContent = product.quantity;
+            tdPrice.textContent = product.price;
+            tdTotal.textContent = product.total;
 
             tr.appendChild(tdId);
             tr.appendChild(tdNameProductImage);
+            tr.appendChild(p);
             tr.appendChild(date);
             tr.appendChild(tdQuantity);
             tr.appendChild(tdPrice);
@@ -160,10 +135,9 @@ function table() {
             tr.appendChild(trushProduct);
             tbody.appendChild(tr);
 
-            // Delete product from both table and localStorage when trash icon is clicked
+            // Delete product when trash icon is clicked
             tdI.addEventListener("click", () => {
-                tr.remove();
-                removeProductFromLocalStorage(getIndex, product.tdId);
+                removeProductFromMemory(index);
             });
         });
     }
@@ -171,19 +145,19 @@ function table() {
     // Implement search functionality
     searchInput.addEventListener("input", function () {
         const query = searchInput.value.toLowerCase(); // Get the search query and convert to lowercase
-        const products = JSON.parse(localStorage.getItem(getIndex)) || [];
         const filteredProducts = products.filter((product) =>
-            product.tdNameProductImage.toLowerCase().includes(query) // Check if product name matches the query
+            product.name.toLowerCase().includes(query) // Check if product name matches the query
         );
 
         // Re-render the table with filtered products
         const tbody = document.getElementById("product-table");
         tbody.innerHTML = ""; // Clear the table
-        filteredProducts.forEach((product) => {
+        filteredProducts.forEach((product, index) => {
             const tr = document.createElement("tr");
             const tdId = document.createElement("td");
             const tdNameProductImage = document.createElement("td");
             tdNameProductImage.id = "tdNameProductImage";
+            const p = document.createElement("td");
             const date = document.createElement("td");
             const tdQuantity = document.createElement("td");
             const tdPrice = document.createElement("td");
@@ -194,15 +168,19 @@ function table() {
             tdI.className = "fa-solid fa-trash";
             trushProduct.appendChild(tdI);
 
-            tdId.textContent = product.tdId;
-            tdNameProductImage.innerHTML = product.tdNameProductImage;
+            tdId.textContent = index + 1; // Use sequential numbering based on array index
+            tdNameProductImage.innerHTML = product.image
+                ? `<img src="${product.image}" id="productImage"/>`
+                : "No Image";
+            p.textContent = product.name;
             date.textContent = product.date;
-            tdQuantity.textContent = product.tdQuantity;
-            tdPrice.textContent = product.tdPrice;
-            tdTotal.textContent = product.tdTotal;
+            tdQuantity.textContent = product.quantity;
+            tdPrice.textContent = product.price;
+            tdTotal.textContent = product.total;
 
             tr.appendChild(tdId);
             tr.appendChild(tdNameProductImage);
+            tr.appendChild(p);
             tr.appendChild(date);
             tr.appendChild(tdQuantity);
             tr.appendChild(tdPrice);
@@ -210,20 +188,17 @@ function table() {
             tr.appendChild(trushProduct);
             tbody.appendChild(tr);
 
-            // Delete product from both table and localStorage when trash icon is clicked
+            // Delete product when trash icon is clicked
             tdI.addEventListener("click", () => {
-                tr.remove();
-                removeProductFromLocalStorage(getIndex, product.tdId);
+                removeProductFromMemory(index);
             });
         });
     });
 
     // Load products when the page is loaded
     window.onload = function () {
-        loadProductsFromLocalStorage();
+        renderTable();
     };
 }
 
-if (getIndex) {
-    table();
-}
+table();

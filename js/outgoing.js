@@ -1,117 +1,165 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const container = document.createElement('div');
-    container.className = 'container';
+// Retrieve products and transactions from localStorage
+const getDataFromProduct = localStorage.getItem("products");
+const getTransactions = localStorage.getItem("transactions");
 
-    // Outgoing form section
-    const outgoing = document.createElement('div');
-    outgoing.className = 'outgoing';
-    const fields = ['Document\'s date', 'Document No', 'Customer', 'Discount(%)', 'Product', 'Comment'];
-    const fieldInputs = {};
+let UserData = getDataFromProduct ? JSON.parse(getDataFromProduct) : []; // Product inventory
+let Transactions = getTransactions ? JSON.parse(getTransactions) : []; // Transaction records
 
-    fields.forEach(field => {
-        const fieldId = field.toLowerCase().replace(/[^a-z0-9]/g, '-');
-        const orderDiv = document.createElement('div');
-        orderDiv.className = 'order';
-        orderDiv.innerHTML = `<p>${field}</p><input id="${fieldId}" type="text" value="">`;
-        outgoing.appendChild(orderDiv);
+// Function to populate the product table
+function outGoingTable(filteredData = UserData) {
+    const table = document.querySelector("table");
+    const oldTbody = document.getElementById("product-table");
 
-        fieldInputs[fieldId] = '';
+    if (oldTbody) {
+        table.removeChild(oldTbody);
+    }
+
+    const tableBody = document.createElement("tbody");
+    tableBody.setAttribute("id", "product-table");
+
+    filteredData.forEach((data, index) => {
+        const tr = document.createElement("tr");
+        tr.setAttribute("data-id", data.tdId);
+
+        const tdID = document.createElement("td");
+        tdID.textContent = index + 1;
+
+        const tdNameProduct = document.createElement("td");
+        tdNameProduct.textContent = data.name;
+
+        const tdDate = document.createElement("td");
+        tdDate.textContent = data.date;
+
+        const tdQuantitys = document.createElement("td");
+        tdQuantitys.textContent = data.quantity;
+
+        const tdPrices = document.createElement("td");
+        tdPrices.textContent = data.price;
+
+        const tdTotal = document.createElement("td");
+        tdTotal.textContent = (parseFloat(data.quantity) * parseFloat(data.price)).toFixed(2);
+
+        tr.appendChild(tdID);
+        tr.appendChild(tdNameProduct);
+        tr.appendChild(tdDate);
+        tr.appendChild(tdQuantitys);
+        tr.appendChild(tdPrices);
+        tr.appendChild(tdTotal);
+
+        tableBody.appendChild(tr);
     });
 
-    container.appendChild(outgoing);
+    table.appendChild(tableBody);
+}
 
-    // Add product section
-    const addProduct = document.createElement('div');
-    addProduct.className = 'add-product';
+// Populate the table initially
+outGoingTable();
 
-    const products = [
-        { img: '/image/top.jpg', name: 'Accessories', stock: 17, price: '$23.99/$102.45' },
-        { img: '/image/coca-cola.main-image.290-417.png', name: 'Coca-Cola', stock: 120, price: '$23.99/$102.45' },
-        { img: '/image/10718830EA-checkers515Wx515H.png', name: 'Lays Sour Cream', stock: 60, price: '$23.99/$102.45' },
-        { img: '/image/O_SW_LF_bdb991019d.png', name: 'Oreo', stock: 18, price: '$23.99/$102.45' },
-        { img: '/image/images.jpg', name: 'Tonic', stock: 54, price: '$23.99/$102.45' },
-        { img: '/image/6949.jpg', name: 'Lays Barbecue', stock: 87, price: '$23.99/$102.45' },
-        { img: '/image/1789484621_0340_0340.jpg', name: 'Cowboy Pants', stock: 94, price: '$23.99/$102.45' },
-        { img: '/image/e701b6d6-b5fd-415c-8138-f733f087628c.png', name: 'Shirt', stock: 76, price: '$23.99/$102.45' },
-    ];
-
-    const productElements = [];
-
-    products.forEach(product => {
-        const productStock = document.createElement('div');
-        productStock.className = 'product-stock';
-
-        const productName = document.createElement('div');
-        productName.className = 'product-name';
-        productName.innerHTML = `<img src="${product.img}" alt=""><span>${product.name}</span>`;
-        productStock.appendChild(productName);
-
-        const totalStock = document.createElement('div');
-        totalStock.className = 'total-product-stock';
-        totalStock.innerHTML = `<p>${product.stock}</p><p class="number">${product.price}</p>`;
-        productStock.appendChild(totalStock);
-
-        addProduct.appendChild(productStock);
-        productElements.push({ product, stockElement: totalStock.children[0], priceElement: totalStock.children[1] });
+// Navbar functionality
+function navbar() {
+    const menuIcon = document.querySelector("#menu");
+    const sideBar = document.getElementById("sideBar");
+    menuIcon.addEventListener("click", () => {
+        sideBar.classList.toggle("hidden");
     });
+}
+navbar();
 
-    container.appendChild(addProduct);
+// Form inputs and button
+const inputNameProduct = document.querySelector("#name-product");
+const inputQuantityProduct = document.querySelector("#quantity-product");
+const inputDiscountProduct = document.querySelector("#discount-product");
+const inputCustomerName = document.querySelector("#name-customer");
+const btnSend = document.querySelector("#btn");
+const showResult = document.querySelector("#showTotal");
 
-    // Create button section
-    const createBtnDiv = document.createElement('div');
-    createBtnDiv.className = 'create-btn';
-    createBtnDiv.innerHTML = `
-        <button id="btn">
-            <i class="fa-regular fa-paper-plane"></i>
-        </button>
-    `;
-    container.appendChild(createBtnDiv);
+let selectedProductPrice = 0;
 
-    // Append container to the body
-    document.body.appendChild(container);
+// Update price dynamically when the product name is entered
+inputNameProduct.addEventListener("input", function () {
+    const productName = inputNameProduct.value.toLowerCase();
+    const product = UserData.find(item => item.name.toLowerCase() === productName);
 
-    // Include the script dynamically
-    const script = document.createElement('script');
-    script.src = "https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js";
-    document.body.appendChild(script);
+    if (product) {
+        selectedProductPrice = parseFloat(product.price);
+    } else {
+        selectedProductPrice = 0;
+    }
 
-    // Add event listener for the create button
-    document.getElementById('btn').addEventListener('click', () => {
-        // Collect data from input fields
-        Object.keys(fieldInputs).forEach(id => {
-            fieldInputs[id] = document.getElementById(id).value;
-        });
+    calculateTotal(); // Update total dynamically when the product name changes
+});
 
-        // Display the data (simulating sending it somewhere)
-        console.log('Form Data:', fieldInputs);
+// Calculate and display total based on quantity, discount, and price
+inputQuantityProduct.addEventListener("input", calculateTotal);
+inputDiscountProduct.addEventListener("input", calculateTotal);
 
-        // Example: Update products dynamically based on the "Product" field
-        const productName = fieldInputs['product'];
-        const discount = parseFloat(fieldInputs['discount']) || 0;
+function calculateTotal() {
+    const quantityProduct = parseFloat(inputQuantityProduct.value) || 0;
+    const discountProduct = parseFloat(inputDiscountProduct.value) || 0;
 
-        const productToUpdate = productElements.find(el => el.product.name.toLowerCase() === productName.toLowerCase());
-        if (productToUpdate) {
-            // Apply discount to the price
-            const [currentPrice] = productToUpdate.product.price.split('/');
-            const discountedPrice = (parseFloat(currentPrice.replace('$', '')) * (1 - discount / 100)).toFixed(2);
+    const discount = discountProduct / 100;
+    const totalProduct = (quantityProduct * selectedProductPrice) * (1 - discount);
 
-            // Update the stock and price
-            productToUpdate.product.stock -= 1; // Assuming 1 product sold
-            productToUpdate.product.price = `$${discountedPrice}/${currentPrice}`;
-            productToUpdate.stockElement.textContent = productToUpdate.product.stock;
-            productToUpdate.priceElement.textContent = productToUpdate.product.price;
+    showResult.textContent = totalProduct.toFixed(2);
+}
 
-            Swal.fire({
-                title: 'Success!',
-                text: `Updated ${productName}. Stock: ${productToUpdate.product.stock}, Price: ${productToUpdate.product.price}`,
-                icon: 'success',
-            });
+// Update product, save transaction, and store data in localStorage
+btnSend.addEventListener("click", function () {
+    const nameProduct = inputNameProduct.value.trim();
+    const quantityProduct = parseFloat(inputQuantityProduct.value) || 0;
+    const discountProduct = parseFloat(inputDiscountProduct.value) || 0;
+    const customerName = inputCustomerName.value.trim();
+
+    if (nameProduct && quantityProduct > 0 && customerName) {
+        const existingProductIndex = UserData.findIndex(product => product.name.toLowerCase() === nameProduct.toLowerCase());
+
+        if (existingProductIndex !== -1) {
+            const product = UserData[existingProductIndex];
+            if (product.quantity >= quantityProduct) {
+                // Update product quantity
+                product.quantity -= quantityProduct;
+                product.date = new Date().toLocaleDateString();
+
+                // Save product updates in localStorage
+                localStorage.setItem("products", JSON.stringify(UserData));
+
+                // Save transaction record
+                const total = (quantityProduct * selectedProductPrice * (1 - discountProduct / 100)).toFixed(2);
+                Transactions.push({
+                    name: nameProduct,
+                    quantity: quantityProduct,
+                    price: selectedProductPrice,
+                    discount: discountProduct,
+                    customer: customerName,
+                    date: new Date().toLocaleDateString(),
+                    total: total,
+                });
+
+                localStorage.setItem("transactions", JSON.stringify(Transactions));
+
+                // Update the table
+                outGoingTable();
+                alert("Transaction saved successfully!");
+            } else {
+                alert("Not enough quantity to subtract!");
+            }
         } else {
-            Swal.fire({
-                title: 'Error!',
-                text: `Product "${productName}" not found.`,
-                icon: 'error',
-            });
+            alert("Product not found!");
         }
-    });
+    } else {
+        alert("Please fill in all the fields!");
+    }
+
+    // Reset form fields
+    inputNameProduct.value = "";
+    inputQuantityProduct.value = "";
+    inputDiscountProduct.value = "";
+    inputCustomerName.value = "";
+});
+
+// Search functionality for products
+inputNameProduct.addEventListener("input", function () {
+    const searchTerm = inputNameProduct.value.toLowerCase();
+    const filteredData = UserData.filter(product => product.name.toLowerCase().includes(searchTerm));
+    outGoingTable(filteredData);
 });

@@ -1,4 +1,3 @@
-
 *{
     padding: 0;
     margin: 0;
@@ -201,7 +200,8 @@ i{
         border: none;
         cursor: pointer;
     }
-} 
+}
+
 
 @media(max-width:768px) {
     body{

@@ -1,34 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Product</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../css/product.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/outgoing.css">
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/outgoing.css">
-    <script src="/js/outgoing.js"></script>
+    <script defer src="../js/outgoing.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
     <nav id="nav-bar">
         <div class="nav-bar-left">
-            <a href="/page/incoming.html"><i class="material-icons">menu</i></a>
-            <h2>Outgoing</h2>
+            <i id="menu" class="material-icons">menu</i>
+            <h2>Create Product</h2>
         </div>
-
         <div class="nav-bar-center">
+            <h2 id=""></h2>
         </div>
         <div class="nav-bar-right">
-            <button id="btn-user"><i id="suer-icon" class="fa-solid fa-user"></i> </button>
+            <i id="uer-icon" class="fa-solid fa-user"></i>  
         </div>
     </nav>
-    <div class="main-store">
-        <h6>Main Stor</h6>
+    <aside id="sideBar">    
+        
+        <div class="tage">
+            <a href="../home.html">
+                <h4 id="sideBar-link">Home</h4>               
+            </a>
+        </div>
+        <div class="tage">
+            <a href="./product.html">
+                <h4 id="sideBar-link">Product</h4>
+
+            </a>
+        </div>
+        <div class="tage">
+            <a href="./incoming.html">
+                <h4 id="sideBar-link">All Product</h4>
+            </a>
+        </div>
+        <div class="tage">
+            <a href="./outgoing.html">
+                <h4 id="sideBar-link">Out Coming</h4>
+            </a>
+        </div>  
+        <div class="tage">
+            <a href="./history.html">
+                <h4 id="sideBar-link">History</h4>
+            </a>
+        </div>
+    </aside>
+
+    <div class="mainStorPrduct">
+        <form action="" id="form">
+  
+                <input type="text" class="input" id="name-product" placeholder="Enter name product">
+                <input type="text" class="input" id="quantity-product" placeholder="Enter Quantity">
+                <input type="text" class="input" id="discount-product" placeholder="Enter discount">
+                <input type="text" class="input" id="name-customer" placeholder="Enter your customer name">
+                
+        </form>
+        <div class="showTotalProduct">  
+            <h3>Total:<h3 id="showTotal"></h3> </h3>
+        </div>
+        <div class="form-store-data">
+            <table>
+                <thead>
+                    <tr id="trheading">
+                        <th>ID</th>
+                        <!-- <th>Product Image</th> -->
+                        <th>Product Name</th>
+
+                        <th>Date</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="product-table">
+                  
+                </tbody>    
+            </table>
+        </div>
+        <div class="create-btn">
+            <button  id="btn"><i class="fa fa-send"></i></button>
+        </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
 </body>
 </html>
-
