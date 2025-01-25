@@ -9,29 +9,26 @@ navbar();
 
 function table() {
     const btnCreate = document.getElementById("btn-create");
-    const formModalPoducts = document.getElementById("formModalProduct");
+    const formModalProducts = document.getElementById("formModalProduct");
     const formCreateProducts = document.getElementById("formCreateProduct");
     const formGroupProduct = document.getElementById("form-popupForm");
     const submitBtn = document.querySelector("#submit-btn-product");
-    const searchInput = document.getElementById("searchInput"); // Search input field
+    const searchInput = document.getElementById("searchInput");
 
-    // Initialize an array to store products in memory
-    let products = JSON.parse(localStorage.getItem("products")) || []; // Load products from localStorage if available
+    // Load products from localStorage or initialize an empty array
+    let products = JSON.parse(localStorage.getItem("products")) || [];
 
-    // Display the form when Create button is clicked
     btnCreate.addEventListener("click", () => {
-        formModalPoducts.style.display = "block";
+        formModalProducts.style.display = "block";
         formCreateProducts.style.display = "block";
     });
 
-    // Hide the form when it is submitted
     formGroupProduct.addEventListener("submit", (event) => {
         event.preventDefault();
-        formModalPoducts.style.display = "none";
+        formModalProducts.style.display = "none";
         formCreateProducts.style.display = "none";
     });
 
-    // Handle form submission and save data to memory
     submitBtn.addEventListener("click", () => {
         const uploadField = document.querySelector("#upload-filde");
         const inputNameProduct = document.querySelector("#name");
@@ -39,15 +36,13 @@ function table() {
         const quantityProduct = document.querySelector("#Quantity");
         const time = new Date();
 
-        // Convert image to base64 if there is a file uploaded
         let imageSrc = "";
         if (uploadField.files.length > 0) {
             const file = uploadField.files[0];
             const reader = new FileReader();
             reader.onloadend = function () {
-                imageSrc = reader.result; // Base64 string
+                imageSrc = reader.result;
 
-                // Save product to memory
                 saveProductToMemory({
                     name: inputNameProduct.value,
                     image: imageSrc,
@@ -58,13 +53,12 @@ function table() {
                         "/" +
                         time.getFullYear(),
                     quantity: quantityProduct.value,
-                    price: productPrice.value + "៛",
+                    price: productPrice.value,
                     total: (quantityProduct.value * productPrice.value).toFixed(2) + "៛",
                 });
             };
             reader.readAsDataURL(file);
         } else {
-            // Save product to memory without an image
             saveProductToMemory({
                 name: inputNameProduct.value,
                 image: "",
@@ -75,30 +69,27 @@ function table() {
                     "/" +
                     time.getFullYear(),
                 quantity: quantityProduct.value,
-                price: productPrice.value + "៛",
+                price: productPrice.value,
                 total: (quantityProduct.value * productPrice.value).toFixed(2) + "៛",
             });
         }
     });
 
-    // Save product data to memory and localStorage
     function saveProductToMemory(product) {
         products.push(product);
-        localStorage.setItem("products", JSON.stringify(products)); // Store updated products in localStorage
+        localStorage.setItem("products", JSON.stringify(products)); // Persist products in localStorage
         renderTable();
     }
 
-    // Remove product from memory and localStorage
     function removeProductFromMemory(index) {
-        products.splice(index, 1); // Remove the product at the given index
-        localStorage.setItem("products", JSON.stringify(products)); // Store updated products in localStorage
+        products.splice(index, 1);
+        localStorage.setItem("products", JSON.stringify(products)); // Persist products in localStorage
         renderTable();
     }
 
-    // Render table with products from memory
     function renderTable() {
         const tbody = document.getElementById("product-table");
-        tbody.innerHTML = ""; // Clear the table
+        tbody.innerHTML = "";
         products.forEach((product, index) => {
             const tr = document.createElement("tr");
             const tdId = document.createElement("td");
@@ -115,7 +106,7 @@ function table() {
             tdI.className = "fa-solid fa-trash";
             trushProduct.appendChild(tdI);
 
-            tdId.textContent = index + 1; // Use sequential numbering based on array index
+            tdId.textContent = index + 1;
             tdNameProductImage.innerHTML = product.image
                 ? `<img src="${product.image}" id="productImage"/>`
                 : "No Image";
@@ -135,23 +126,50 @@ function table() {
             tr.appendChild(trushProduct);
             tbody.appendChild(tr);
 
-            // Delete product when trash icon is clicked
+            const makeEditable = (td, field, type = "text", updateTotal = false) => {
+                td.addEventListener("dblclick", () => {
+                    const input = document.createElement("input");
+                    input.type = type;
+                    input.value = product[field];
+                    td.textContent = ""; 
+                    td.appendChild(input);
+
+                    input.focus();
+                    input.addEventListener("blur", () => {
+                        product[field] = input.value;
+
+                        if (updateTotal) {
+                            product.total = (product.quantity * product.price).toFixed(2) + "៛";
+                        }
+
+                        localStorage.setItem("products", JSON.stringify(products)); 
+                        renderTable(); 
+                    });
+
+                    input.addEventListener("keydown", (e) => {
+                        if (e.key === "Enter") input.blur();
+                    });
+                });
+            };
+
+            makeEditable(p, "name");
+            makeEditable(tdQuantity, "quantity", "number", true);
+            makeEditable(tdPrice, "price", "number", true);
+
             tdI.addEventListener("click", () => {
                 removeProductFromMemory(index);
             });
         });
     }
 
-    // Implement search functionality
     searchInput.addEventListener("input", function () {
-        const query = searchInput.value.toLowerCase(); // Get the search query and convert to lowercase
+        const query = searchInput.value.toLowerCase();
         const filteredProducts = products.filter((product) =>
-            product.name.toLowerCase().includes(query) // Check if product name matches the query
+            product.name.toLowerCase().includes(query)
         );
 
-        // Re-render the table with filtered products
         const tbody = document.getElementById("product-table");
-        tbody.innerHTML = ""; // Clear the table
+        tbody.innerHTML = "";
         filteredProducts.forEach((product, index) => {
             const tr = document.createElement("tr");
             const tdId = document.createElement("td");
@@ -168,7 +186,7 @@ function table() {
             tdI.className = "fa-solid fa-trash";
             trushProduct.appendChild(tdI);
 
-            tdId.textContent = index + 1; // Use sequential numbering based on array index
+            tdId.textContent = index + 1;
             tdNameProductImage.innerHTML = product.image
                 ? `<img src="${product.image}" id="productImage"/>`
                 : "No Image";
@@ -188,14 +206,12 @@ function table() {
             tr.appendChild(trushProduct);
             tbody.appendChild(tr);
 
-            // Delete product when trash icon is clicked
             tdI.addEventListener("click", () => {
                 removeProductFromMemory(index);
             });
         });
     });
 
-    // Load products when the page is loaded
     window.onload = function () {
         renderTable();
     };

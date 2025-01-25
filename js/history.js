@@ -30,6 +30,8 @@ function outGoingTable(filteredData = UserData) {
     tdID.textContent = index + 1;
     const tdNameProduct = document.createElement("td");
     tdNameProduct.textContent = data.name;
+    const CustomerName = document.createElement("td");
+    CustomerName.textContent = data. customer;
 
     const tdDate = document.createElement("td");
     tdDate.textContent = data.date;
@@ -65,6 +67,7 @@ function outGoingTable(filteredData = UserData) {
 
     tr.appendChild(tdID);
     tr.appendChild(tdNameProduct);
+    tr.appendChild(CustomerName)
     tr.appendChild(tdDate);
     tr.appendChild(tdQuantitys);
     tr.appendChild(tdPrices);
