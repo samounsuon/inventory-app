@@ -217,6 +217,28 @@ i{
   .aside-icon {
     display: none;
   }
+  #sidebar{
+    width: 35%;
+  }
+  h1{
+    font-size: 24px;
+  }
+  .bx{
+    display: none;
+  }
+  #menu-button{
+    padding: 5px;
+  }
+  #main-content{
+  margin-left: 137px;
+  }
+  .header{
+  margin-left: 30px;
+  font-size: 24px;
+  }
+  h2{
+  font-size: 14px;
+  }
   .aside-right {
     width: 100%;
     height: 100vh;
@@ -227,24 +249,24 @@ i{
   }
   .card {
     width: 40%;
-    height: 100px;
+    height: 80px;
     margin-top: 5px;
   }
   #report {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
   }
   #incoming {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
   }
   #outcoming {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
   }
   #goods {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
   }
   .product-alert {
     display: flex;
@@ -255,25 +277,25 @@ i{
     margin-top: 50px;
   }
   .alert-incoming {
-    width: 80%;
+    width: 85%;
     height: 90px;
     background-color: gray;
     border-radius: 10px;
   }
   .alert-outcoming {
-    width: 80%;
+    width: 85%;
     height: 90px;
     background-color: gray;
     border-radius: 10px;
   }
   .alert-goods {
-    width: 80%;
+    width: 85%;
     height: 90px;
     background-color: gray;
     border-radius: 10px;
   }
   .alert-report {
-    width: 80%;
+    width: 85%;
     height: 90px;
     background-color: gray;
     border-radius: 10px;
@@ -282,3 +304,29 @@ i{
     border: 1px solid black;
   }
 }
+@media (max-width:768px) {
+  #sidebar{
+    width: 35%;
+  }
+   .card{
+    width: 45%;
+    height: 120px;
+   }
+   #report {
+    width:60px;
+    height:60px;
+  }
+  #incoming {
+    width:60px;
+    height:60px;
+  }
+  #outcoming {
+    width:60px;
+    height: 60px;
+  }
+  #goods {
+    width:60px;
+    height:60px;
+  }
+}
+  
