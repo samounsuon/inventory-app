@@ -1,11 +1,11 @@
-function navbar() {
-    const menuIcon = document.querySelector("#menu");
-    const sideBar = document.getElementById("sideBar");
-    menuIcon.addEventListener("click", () => {
-        sideBar.classList.toggle("hidden");
-    });
-}
-navbar();
+// function navbar() {
+//     const menuIcon = document.querySelector("#menu");
+//     const sideBar = document.getElementById("sideBar");
+//     menuIcon.addEventListener("click", () => {
+//         sideBar.classList.toggle("hidden");
+//     });
+// }
+// navbar();
 
 function table() {
     const btnCreate = document.getElementById("btn-create");

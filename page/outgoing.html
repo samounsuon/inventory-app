@@ -10,54 +10,48 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script defer src="../js/outgoing.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+  
 
 </head>
 <body>
-    <nav id="nav-bar">
-        <div class="nav-bar-left">
-            <i id="menu" class="material-icons">menu</i>
-            <h2>Create Product</h2>
+    <div id="sidebar">
+        <h1 id="title-app">Inventory</h1>
+        <div class="icon">
+              <div class="icon-home aside-icon">
+                <a href="./home.html"><i class='bx bxs-home'></i>Home</a>
+              </div>
+              <div class="add-product aside-icon">
+                <a href="./product.html"> <i class='bx bx bx-cart'></i>Add Product</a>
+              </div>
+              <div class="icon-store aside-icon">
+                <a href="./incoming.html"><i class='bx bxs-store'></i>Store Product</a>
+              </div>
+              <div class="icon-sendout aside-icon">
+                <a href="./outgoing.html"><i class='bx bxs-archive-in'></i>Send out product</a>
+              </div>
+              <div class="icon-history aside-icon">
+                <a href="./history.html"><i class='bx bx-history'></i>History</a>
+              </div>
         </div>
-        <div class="nav-bar-center">
-            <h2 id=""></h2>
-        </div>
-        <div class="nav-bar-right">
-            <i id="uer-icon" class="fa-solid fa-user"></i>  
-        </div>
-    </nav>
-    <aside id="sideBar">    
-        
-        <div class="tage">
-            <a href="../home.html">
-                <h4 id="sideBar-link">Home</h4>               
-            </a>
-        </div>
-        <div class="tage">
-            <a href="./product.html">
-                <h4 id="sideBar-link">Product</h4>
+      </div>
 
-            </a>
-        </div>
-        <div class="tage">
-            <a href="./incoming.html">
-                <h4 id="sideBar-link">All Product</h4>
-            </a>
-        </div>
-        <div class="tage">
-            <a href="./outgoing.html">
-                <h4 id="sideBar-link">Out Coming</h4>
-            </a>
-        </div>  
-        <div class="tage">
-            <a href="./history.html">
-                <h4 id="sideBar-link">History</h4>
-            </a>
-        </div>
-    </aside>
-
-    <div class="mainStorPrduct">
+    <div class="mainStorPrduct" id="main-content">
+        <nav id="nav-bar">
+            <div class="nav-bar-left">
+                <!-- <h2>Inventory</h2> -->
+                <button id="menu-button"><i class="material-icons" id="menu">menu</i></i></button>
+            </div>
+            <div class="nav-bar-center">
+                <h2 id=""></h2>
+            </div>
+            <div class="nav-bar-right">
+                <i id="user-icon" class="fa-solid fa-user"></i>  
+            </div>
+        </nav>
         <form action="" id="form">
   
                 <input type="text" class="input" id="name-product" placeholder="Enter name product">
