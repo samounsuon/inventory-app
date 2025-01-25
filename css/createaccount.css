@@ -26,8 +26,10 @@ body{
     align-items: center;
 }
 img{
-    width: 490px;
-    height: 60vh;
+    width: 70%;
+    height: 75vh;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 20px;
 }
 .contain-form{
     flex: 1;
@@ -39,8 +41,8 @@ img{
 }
 
 form{
-    width: 60%;
-    height: 80vh;
+    width: 50%;
+    height: 75vh;
     border-radius: 20px;
     background-color: white;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -49,6 +51,12 @@ h1{
     text-align: center;
     margin-top: 20px;
 }
+/* .container{
+    background-color: aqua;
+} */
+/* .contain-form{
+    background-color: #FF5733;
+} */
 .infor-form{
     padding: 40px;
     display: flex;
@@ -68,9 +76,9 @@ h1{
     flex-direction: column;
 }
 input[type = "text"] {
-    padding: 10px;
+    padding: 8px;
     border-radius: 10px;
-    width: 180px;
+    width: 140px;
     border: 1px solid gray;
 }
 
@@ -80,9 +88,9 @@ input[type = "text"] {
     margin-top: 15px;
 }
 input[type = "email"] {
-    padding: 10px;
+    padding: 8px;
     border-radius: 10px;
-    width: 390px;
+    width: 310px;
     border: 1px solid gray;
 }
 .password{
@@ -91,9 +99,9 @@ input[type = "email"] {
     margin-top: 15px;
 }
 input[type = "password"] {
-    padding: 10px;
+    padding: 8px;
     border-radius: 10px;
-    width: 390px;
+    width: 310px;
     border: 1px solid gray;
 }
 p{
@@ -104,11 +112,15 @@ p{
 }
 #btn{
     background-color: orange;
-    padding: 10px;
-    width: 390px;
+    padding: 8px;
+    width: 310px;
     border-radius: 10px;
     border: none;
     cursor: pointer;
+    margin-top: 20px;
+}
+#btn{
+    transition: 2ms;
 }
 a{
     text-decoration: none;
@@ -126,8 +138,8 @@ a{
     border: 1px solid gray;
 }
 #submit{
-    width: 390px;
-    padding: 10px;
+    width: 310px;
+    padding: 8px;
     background-color: blue;
     color: white;
     border: none;
