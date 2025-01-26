@@ -1,11 +1,4 @@
-// function navbar() {
-//     const menuIcon = document.querySelector("#menu");
-//     const sideBar = document.getElementById("sideBar");
-//     menuIcon.addEventListener("click", () => {
-//         sideBar.classList.toggle("hidden");
-//     });
-// }
-// navbar();
+
 
 function table() {
     const btnCreate = document.getElementById("btn-create");
@@ -15,7 +8,6 @@ function table() {
     const submitBtn = document.querySelector("#submit-btn-product");
     const searchInput = document.getElementById("searchInput");
 
-    // Load products from localStorage or initialize an empty array
     let products = JSON.parse(localStorage.getItem("products")) || [];
 
     btnCreate.addEventListener("click", () => {
@@ -77,13 +69,13 @@ function table() {
 
     function saveProductToMemory(product) {
         products.push(product);
-        localStorage.setItem("products", JSON.stringify(products)); // Persist products in localStorage
+        localStorage.setItem("products", JSON.stringify(products));
         renderTable();
     }
 
     function removeProductFromMemory(index) {
         products.splice(index, 1);
-        localStorage.setItem("products", JSON.stringify(products)); // Persist products in localStorage
+        localStorage.setItem("products", JSON.stringify(products)); 
         renderTable();
     }
 
@@ -132,6 +124,7 @@ function table() {
                     input.type = type;
                     input.value = product[field];
                     td.textContent = ""; 
+                    
                     td.appendChild(input);
 
                     input.focus();
@@ -139,9 +132,8 @@ function table() {
                         product[field] = input.value;
 
                         if (updateTotal) {
-                            product.total = (product.quantity * product.price).toFixed(2) + "៛";
+                            product.total  = (product.quantity * product.price).toFixed(2) + "៛";
                         }
-
                         localStorage.setItem("products", JSON.stringify(products)); 
                         renderTable(); 
                     });
