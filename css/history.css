@@ -50,16 +50,19 @@ body {
     align-items: center;
     gap: 10px;
   }
+  .nav-bar-center{
+    color: #ffffff;
+  }
   #user-icon {
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 100%;
-    color: black;
+    color: rgb(255, 255, 255);
     border: none;
   }
   #user-icon:hover {
-    color: white;
+    color: rgb(3, 3, 3);
     font-size: 24px;
   }
   aside {
@@ -148,6 +151,7 @@ body {
     margin: 15px 0;
     display: flex;
     align-items: center;
+    
   }
   
   #sidebar ul li i {
@@ -247,13 +251,12 @@ table {
 }
 
 th, td {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-    
+    border: 1px solid #000000;
     padding: 8px;
 
 }
 thead tr ,th {
-  background-color: #008080;
+  background-color:rgb(219, 154, 32);
   color: white;
 }
 
