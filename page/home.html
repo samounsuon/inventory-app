@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/css/home.css" />
+    <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link
       rel="stylesheet"
@@ -15,84 +20,92 @@
     />
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../css/product.css">
+    <!-- <link rel="stylesheet" href="../css/product.css"> -->
     <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-
+    <script src="/js/home.js" defer></script>
   </head>
   <body>
-    <nav id="nav-bar">
-        <div class="nav-bar-left">
-            <i id="menu" class="material-icons">menu</i>
-            <h2>Inventory</h2>
+    
+    <!-- Sidebar -->
+    <div id="sidebar">
+      <h1 id="title-app">Inventory</h1>
+      <div class="icon">
+            <div class="icon-home aside-icon">
+              <a href="./home.html"><i class='bx bxs-home'></i>Home</a>
+            </div>
+            <div class="add-product aside-icon">
+              <a href="./product.html"> <i class='bx bx bx-cart'></i>Add Product</a>
+            </div>
+            <div class="icon-store aside-icon">
+              <a href="./incoming.html"><i class='bx bxs-store'></i>Store Product</a>
+            </div>
+            <div class="icon-setout aside-icon">
+              <a href="./outgoing.html"><i class='bx bxs-archive-in'></i>Send out product</a>
+            </div>
+            <div class="icon-history aside-icon">
+              <a href="./history.html"><i class='bx bx-history'></i>History</a>
+            </div>
+      </div>
+    </div>
+      <!-- Main Content -->
+      <div id="main-content">
+        <nav id="nav-bar">
+          <div class="nav-bar-left">
+              <!-- <h2>Inventory</h2> -->
+              <button id="menu-button"><i class="material-icons" id="menu">menu</i></i></button>
+          </div>
+          <div class="nav-bar-center">
+              <h2 id=""></h2>
+          </div>
+          <div class="nav-bar-right">
+              <i id="user-icon" class="fa-solid fa-user"></i>  
+          </div>
+        </nav>
+        <div class="header">
+              <h1>Welcome to MyApp</h1>
         </div>
-        <div class="nav-bar-center">
-            <h2 id=""></h2>
-        </div>
-        <div class="nav-bar-right">
-            <i id="user-icon" class="fa-solid fa-user"></i>  
-        </div>
-    </nav>
 
-    <aside>
-        <div class="aside-left">
-            <div class="aside-icon">
-                <div class="icon-top">
-                    <i class="fa-solid fa-file"></i>
-                    <p>New sale</p>
-                </div>
-                <div class="icon-center">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <p>Sale</p>
-                </div>
-                <div class="icont-bottom">
-                    <i class="fa-solid fa-gift"></i>
-                    <p>Product</p>
-                </div>
-            </div>
-        </div>
+
         <div class="aside-right">
-            <h1 id="task">Task Management</h1>
-            <div class="aside-card">
-                <div class="card">
-                    <img id="report" src="/images/report.png" alt="">
-                    <h2>Report</h2>
-                    <p>Product</p>
-                </div>
-                <div class="card">
-                    <img id="incoming" src="/images/incoming.png" alt="">
-                    <h2>Incoming</h2>
-                    <p>product</p>
-                </div>
-                <div class="card">
-                    <img id="outcoming" src="/images/outcoming.png" alt="">     
-                    <h2>Outcoming</h2>        
-                    <p>Product</p>   
-                </div>
-                <div class="card">
-                    <img  id = "goods" src="/images/goods.png" alt="">
-                    <h2>Goods</h2>
-                </div>
-            </div>
-            <div class="product">
-                <h3 id="alert">product alert</h3>
-                <div class="product-alert">
-                
-                    <div class="alert-report">
-                        <h3>Product increase +20%</h3>
-                    </div>
-                    <div class="alert-incoming">
-                        <h3>Product in stock 30</h3>
-                    </div>
-                    <div class="alert-outcoming">
-                        <h3>Product out of stock 30</h3>
-                    </div>
-                    <div class="alert-goods">
-                        <h3>Quanlity 100%</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </aside>
+          <div class="aside-card">
+              <div class="card">
+                  <img id="report" src="/images/report.png" alt="">
+                  <h2>Report</h2>
+                  <p>Product</p>
+              </div>
+              <div class="card">
+                  <img id="incoming" src="/images/incoming.png" alt="">
+                  <h2>Incoming</h2>
+                  <p>product</p>
+              </div>
+              <div class="card">
+                  <img id="outcoming" src="/images/outcoming.png" alt="">     
+                  <h2>Outcoming</h2>        
+                  <p>Product</p>   
+              </div>
+              <div class="card">
+                  <img  id = "goods" src="/images/goods.png" alt="">
+                  <h2>Product</h2>
+              </div>
+          </div>
+          <!-- <div class="product">
+              <div class="product-alert">
+                  <div class="alert-report">
+                      <h3>Product increase <span>:</span></h3>
+                  </div> 
+                   <div class="alert-incoming">
+                      <h3>Product in stock <span>:</span></h3>
+                  </div>
+                  <div class="alert-outcoming">
+                      <h3>Product out of stock <span>:</span></h3>
+                  </div>
+                  <div class="alert-goods">
+                      <h3>Quanlity <span>:</span></h3>
+                  </div> 
+              </div>
+          </div> -->
+      </div>
+      </div>
   </body>
 </html>
