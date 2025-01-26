@@ -28,9 +28,12 @@ function outGoingTable(filteredData = UserData) {
         
         const tdQuantitys = document.createElement("td");
         tdQuantitys.textContent = data.quantity;
-        if (data.quantity<=10){
+        if (data.quantity<=10&&data.quantity>0) {
             // tr.style.background="#fff5cc"
             tr.id="tr-hover-samll-than-ten"
+        }else if (data.quantity==0){
+            tr.id="tr-outstock"
+            
         }
 
         const tdPrices = document.createElement("td");
@@ -55,7 +58,7 @@ function outGoingTable(filteredData = UserData) {
 // Populate the table initially
 outGoingTable();
 
-// Navbar functionality
+// Navbar functionali   ty
 function navbar() {
     const menuIcon = document.querySelector("#menu");
     const sideBar = document.getElementById("sideBar");
