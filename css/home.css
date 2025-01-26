@@ -27,6 +27,10 @@ body {
   gap: 10px;
 
 }
+a{
+  display: flex;
+  align-items: center;
+}
 
 #uer-icon{
   display: flex;
@@ -98,12 +102,10 @@ aside {
 .aside-bar.hidden {
   transform: translateX(0%); /* Move sidebar out of view */
 }
-
 .aside-right {
   width: 100%;
   height: 70vh;
 }
-
 .aside-card {
   display: flex;
   flex-wrap: wrap;
@@ -111,8 +113,6 @@ aside {
   align-items: center;
   gap: 10px;
 }
-
-
 /* Sidebar */
 #sidebar {
   width: 200px;
@@ -163,7 +163,6 @@ aside {
   a{
     color: black;
   }
-  
 }
 .aside-icon:hover{
   background-color: rgb(232, 232, 232);
@@ -185,11 +184,11 @@ aside {
 a{
   text-decoration: none;
   color: white;
+  font-weight: bold;
 }
 i{
   margin-right: 20px;
 }
-/* Main Content */
 #main-content {
   margin-left: 200px;
   flex-grow: 1;
@@ -204,12 +203,6 @@ i{
 #main-content.compact {
   margin-left: 0;
 }
-
-
-
-
-
-
 .card {
   display: flex;
   flex-direction: column;
@@ -282,14 +275,12 @@ i{
 }
 
 @media (max-width: 428px) {
-  .aside-icon {
-    display: none;
-  }
+
   #sidebar{
-    width: 35%;
+    width: 30%;
   }
   h1{
-    font-size: 24px;
+    font-size: 20px;
   }
   .bx{
     display: none;
@@ -298,7 +289,7 @@ i{
     padding: 5px;
   }
   #main-content{
-  margin-left: 137px;
+  margin-left: 30%;
   }
   .header{
   margin-left: 30px;
@@ -316,8 +307,8 @@ i{
     flex-wrap: wrap;
   }
   .card {
-    width: 40%;
-    height: 80px;
+    width: 90%;
+    height: 100px;
     margin-top: 5px;
   }
   #report {
@@ -336,45 +327,16 @@ i{
     width: 30px;
     height: 30px;
   }
-  .product-alert {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 50px;
-  }
-  .alert-incoming {
-    width: 85%;
-    height: 90px;
-    background-color: gray;
-    border-radius: 10px;
-  }
-  .alert-outcoming {
-    width: 85%;
-    height: 90px;
-    background-color: gray;
-    border-radius: 10px;
-  }
-  .alert-goods {
-    width: 85%;
-    height: 90px;
-    background-color: gray;
-    border-radius: 10px;
-  }
-  .alert-report {
-    width: 85%;
-    height: 90px;
-    background-color: gray;
-    border-radius: 10px;
-  }
+  
   #user-icon {
     border: 1px solid black;
   }
-}
-@media (max-width:768px) {
-  #sidebar{
-    width: 35%;
+} 
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .aside-card{
+    display: flex;
+    flex-wrap: wrap;
   }
    .card{
     width: 45%;
