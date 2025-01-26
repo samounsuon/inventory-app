@@ -198,13 +198,7 @@ input {
     .login-right {
         display: none;
     }
-    /* .login-container{
-       
-    } */
-    .login-left{
-        /* border-right: 2px solid; */
-        /* align-items: center; */
-    }
+
     #login-form {
         border-right:solid 2px rgba(128, 128, 128, 0.1);
         border-radius: 25px;
