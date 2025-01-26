@@ -181,4 +181,9 @@ td img {
     width: 50px; 
 }
 
-/*  */
+/* show Total data */
+.showTotalProduct{
+    display: flex;
+    gap: 20px;
+    padding-left: 5%;
+}

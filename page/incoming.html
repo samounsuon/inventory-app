@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Product</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../css/product.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/incoming.css">
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/incoming.css">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">      -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script defer src="../js/incoming.js"></script>
-
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-
 <body>
     <nav id="nav-bar">
         <div class="nav-bar-left">
             <i id="menu" class="material-icons">menu</i>
-            <h2>Incoming</h2>
+            <h2>Create Product</h2>
         </div>
         <div class="nav-bar-center">
             <h2 id=""></h2>
@@ -56,19 +52,28 @@
             <a href="./outgoing.html">
                 <h4 id="sideBar-link">Out Coming</h4>
             </a>
-        </div>
+        </div>  
     </aside>
-    <div class="container">
-        <div class="main-store">
-            <p id="main-store">Main Store</p>
-        </div>
-        <div class="card-diragetorys">
+    <div class="mainStorPrduct">
+        <div class="form-store-data">
+            <table>
+                <thead>
+                    <tr id="trheading">
+                        <th>ID</th>
+                        <!-- <th>Product Image</th> -->
+                        <th>Product Name</th>
 
+                        <th>Date</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="product-table">  
+                </tbody>    
+            </table>
         </div>
-        <div class="create-btn">
-            <button id="btn">+</button>
-        </div>
+        
     </div>
 </body>
-
 </html>
