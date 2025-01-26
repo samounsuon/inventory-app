@@ -10,45 +10,40 @@ body {
   background-color: #f9f9f9;
   color: #333;
 }
-#nav-bar{
+#nav-bar {
   background-color: #029588;
   height: 10%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0px 30px;
- 
-  /* width: 100%; */
 }
-
-.nav-bar-left{
+#h2{
+  color: white;
+}
+.nav-bar-left {
   display: flex;
   align-items: center;
   gap: 10px;
-
 }
 a{
   display: flex;
   align-items: center;
 }
-
-#uer-icon{
+#uer-icon {
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 100%;
   color: black;
   border: none;
-  
 }
-#uer-icon:hover{
-  color:white    ;
+#uer-icon:hover {
+  color: white;
   font-size: 24px;
 }
-
-#nav-bar{
+#nav-bar {
   height: 8vh;
-
 }
 .nav-bar-left {
   display: flex;
@@ -74,33 +69,25 @@ aside {
 #menu-button {
   background-color: #029588;
   color: white;
-  border: none; 
-  /* border-radius: 5px; */
-  cursor: pointer;  
-  
-
-  /* font-size:25px; */
+  border: none;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 35px;
 }
-
-
-
-
 .aside-bar {
   top: 10%;
   position: fixed;
   width: 12%;
   display: flex;
   flex-direction: column;
-  transform: translateX(0); /* Default visible state */
+  transform: translateX(0); 
   transition: transform 0.3s ease;
-  transform: translateX(-100%); /* Move sidebar out of view */
+  transform: translateX(-100%); 
 }
 .aside-bar.hidden {
-  transform: translateX(0%); /* Move sidebar out of view */
+  transform: translateX(0%); 
 }
 .aside-right {
   width: 100%;
@@ -113,7 +100,6 @@ aside {
   align-items: center;
   gap: 10px;
 }
-/* Sidebar */
 #sidebar {
   width: 200px;
   background-color: #008080;
@@ -128,78 +114,70 @@ aside {
   flex-direction: column;
   gap: 30px;
 }
-#title-app{
+#title-app {
   text-align: center;
 }
 #sidebar.hidden {
   transform: translateX(-100%);
 }
-
 #sidebar .logo {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
 }
-
 #sidebar ul {
   list-style: none;
 }
-
 #sidebar ul li {
   margin: 15px 0;
   display: flex;
   align-items: center;
 }
-
 #sidebar ul li i {
   margin-right: 10px;
 }
-.icon{
+.icon {
   gap: 10px;
 }
-.icon-home{
+.icon-home {
   border-radius: 0px 10px 10px 0px;
-  background-color: #f9f9f9;  
-  a{
+  background-color: #f9f9f9;
+  a {
     color: black;
   }
 }
-.aside-icon:hover{
+.aside-icon:hover {
   background-color: rgb(232, 232, 232);
-  a{
+  a {
     color: black;
     font-weight: bold;
   }
 }
-.icon-store{
-  border-radius: 100px ;
+.icon-store {
+  border-radius: 100px;
 }
-
-.aside-icon{
+.aside-icon {
   padding: 10px 10px 10px 10px;
-  border-radius: 10px 0px 0px 10px  ;
+  border-radius: 10px 0px 0px 10px;
   margin: 0% 0% 0% 5%;
 }
-
 a{
   text-decoration: none;
   color: white;
   font-weight: bold;
 }
-i{
-  margin-right: 20px;
+i {
+  margin-right: 10px;
 }
 #main-content {
   margin-left: 200px;
   flex-grow: 1;
   transition: margin-left 0.3s ease-in-out;
-  
 }
-.header{
+.header {
   padding-left: 30px;
   margin-top: 10px;
 }
-
 #main-content.compact {
   margin-left: 0;
 }
@@ -238,7 +216,7 @@ i{
   width: 47%;
   height: 130px;
   border-radius: 10px;
-  
+
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
@@ -256,7 +234,6 @@ i{
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
-
 #report {
   width: 100px;
   height: 90px;
@@ -273,7 +250,6 @@ i{
   width: 100px;
   height: 90px;
 }
-
 @media (max-width: 428px) {
 
   #sidebar{
@@ -282,21 +258,21 @@ i{
   h1{
     font-size: 20px;
   }
-  .bx{
-    display: none;
+  a {
+    font-size: 14px;
   }
-  #menu-button{
+  #menu-button {
     padding: 5px;
   }
   #main-content{
   margin-left: 30%;
   }
-  .header{
-  margin-left: 30px;
-  font-size: 24px;
+  .header {
+    margin-left: -10px;
+    font-size: 24px;
   }
-  h2{
-  font-size: 14px;
+  h2 {
+    font-size: 14px;
   }
   .aside-right {
     width: 100%;
@@ -328,9 +304,6 @@ i{
     height: 30px;
   }
   
-  #user-icon {
-    border: 1px solid black;
-  }
 } 
 @media (min-width: 768px) and (max-width: 1024px) {
 
@@ -338,25 +311,36 @@ i{
     display: flex;
     flex-wrap: wrap;
   }
-   .card{
+  #sidebar{
+    width: 32%;
+  }
+  #title-app{
+    margin-right: 75px;
+  }
+  #main-content {
+    margin-left:32%;
+  }
+  a {
+    font-size: 18px;
+  }
+  .card {
     width: 45%;
     height: 120px;
-   }
-   #report {
-    width:60px;
-    height:60px;
+  }
+  #report {
+    width: 60px;
+    height: 60px;
   }
   #incoming {
-    width:60px;
-    height:60px;
+    width: 60px;
+    height: 60px;
   }
   #outcoming {
-    width:60px;
+    width: 60px;
     height: 60px;
   }
   #goods {
-    width:60px;
-    height:60px;
+    width: 60px;
+    height: 60px;
   }
 }
-  
