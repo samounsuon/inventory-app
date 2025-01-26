@@ -20,6 +20,8 @@ body {
     flex-direction: row;
     width: 100%;
     height: 100vh;
+    
+    
 }
 
 .login-left {
@@ -27,19 +29,20 @@ body {
     display: flex;
     justify-content: end;
     align-items: center;
-    height: 100vh;
+    height: 100%;
 }
 
 #login-form {
-    width: 50%;
-    height: 70vh;
+    width: 60%;
+    height:80%;
     border-radius: 20px 0px 0px 20px;
-    padding: 40px;
+    padding:2% 5%;
     margin-right: 0px;
     border-right: none;
     background-color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 2px 0px rgba(128, 128, 128, 0.51);
+    border: solid 2px rgba(128, 128, 128, 0.1);
     /* box-shadow: ; */
+    border-right: none;
 
 }
 
@@ -54,12 +57,14 @@ body {
 }
 
 #img{
-    width: 50%;
-    height: 70vh;
+    border: solid 2px rgba(128, 128, 128, 0.1);
+    border-left: none;
+    width: 60%;
+    height: 80%;
     border-radius: 0px 20px 20px 0px ;
     border-left: none;
     margin-right: 190px;
-    box-shadow: 0.8px -0px 0.1px 0.8px rgba(128, 128, 128, 0.364) ;
+
 }
 h1 {
     text-align: center;
@@ -85,6 +90,7 @@ input {
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 10px;
+    
 }
 
 .forgot-password {
@@ -93,6 +99,7 @@ input {
     font-size: 14px;
     color: #007bff;
     text-decoration: none;
+   
 }
 
 .forgot-password:hover {
@@ -101,13 +108,15 @@ input {
 
 .btn {
     width: 100%;
-    padding: 12px;
+    padding: 10px 12px ;
     font-size: 14px;
-    border-radius: 4px;
+    border-radius: 25px;
     cursor: pointer;
     margin-bottom: 10px;
 }
-
+#sumbit:hover{
+    background-color: rgba(255, 180, 40, 0.991);
+}
 .btn.primary {
     background-color: orange;
     color: #fff;
@@ -132,11 +141,45 @@ input {
 }
 #singnup{
     text-decoration: none;
+    color: #007bff;
     
+}
+#singnup:hover{
+    color: orange;
 }
 #text-signup{
     text-align: center;
 }
+
+
+@media (min-width: 768px) and (max-width: 1024px){
+    body{
+        width: 100%;
+        height: 100vh;
+    }
+    .login-container{
+        display: flex;
+        justify-content: center;
+        align-items: center ;
+    }
+    .login-left,
+    .login-right{
+        width: 100%;
+        height: 50%;
+    }
+    #login-form {
+        width: 80%;
+        /* height: 50%; */
+    }
+    #img{
+        width: 80%;
+    }
+    input[type="email"],
+    input[type="password"] {
+        padding: 10px;
+    }
+}
+
 @media (max-width: 428px) {
     body {
         width: 100%;
@@ -153,24 +196,5 @@ input {
     input[type="email"],
     input[type="password"] {
         padding: 6px;
-    }
-}
-
-@media (max-width: 768px) {
-    body{
-        width: 100%;
-        height: 100vh;
-    }
-    #img {
-        width: 70%;
-        height: 50vh;
-    }
-    #login-form {
-        width: 70%;
-        height: 70vh;
-    }
-    input[type="email"],
-    input[type="password"] {
-        padding: 10px;
     }
 }
