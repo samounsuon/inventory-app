@@ -14,8 +14,7 @@ body{
     justify-content: space-between;
     align-items: center;
     padding: 0px 30px;
-   
-    /* width: 100%; */
+
 }
 
 .nav-bar-left{
@@ -54,17 +53,16 @@ body{
     width: 10%;
     display: flex;
     flex-direction: column;
-    transform: translateX(0); /* Default visible state */
+    transform: translateX(0);
     transition: transform 0.3s ease;
-    transform: translateX(-100%); /* Move sidebar out of view */
-
+    transform: translateX(-100%); 
 }
 #menu:hover, #btn-user:hover{
     color: white;
     font-size: 30px;
 }
 #sideBar.hidden{
-    transform: translateX(0%); /* Move sidebar out of view */
+    transform: translateX(0%);
 }
 
 .tage{
@@ -72,18 +70,13 @@ body{
     border-bottom: solid 1px rgb(212, 212, 212);
 }
 .tage:nth-child(5){
-    /* border-bottom: none; */
     border-radius: 0px 0px 10px 0px;
-    
 }
 .tage:nth-child(1){
-    /* border-bottom: none; */
     border-radius: 0px 10px 0px 0px;
-    
 }
 .tage:hover{
     background-color:rgb(76, 152, 152);
-
 }
 #sideBar a{
     text-decoration: none;
@@ -96,7 +89,6 @@ body{
 #sideBar-link{
     padding-left: 10px;
 }
-/* container */
 .create-btn{
     position:fixed;
     top: 85%;

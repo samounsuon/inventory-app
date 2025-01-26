@@ -35,7 +35,7 @@ a{
   align-items: center;
   justify-content: center;
   border-radius: 100%;
-  color: black;
+  color:white;
   border: none;
 }
 #uer-icon:hover {
@@ -55,7 +55,7 @@ a{
   align-items: center;
   justify-content: center;
   border-radius: 100%;
-  color: black;
+  color: white;
   border: none;
 }
 #user-icon:hover {
@@ -251,9 +251,8 @@ i {
   height: 90px;
 }
 @media (max-width: 428px) {
-
   #sidebar{
-    width: 30%;
+    width: 40%;
   }
   h1{
     font-size: 20px;
@@ -265,7 +264,7 @@ i {
     padding: 5px;
   }
   #main-content{
-  margin-left: 30%;
+  margin-left: 40%;
   }
   .header {
     margin-left: -10px;
@@ -302,6 +301,9 @@ i {
   #goods {
     width: 30px;
     height: 30px;
+  }
+  #nav-center{
+    font-size: 20px;
   }
   
 } 
