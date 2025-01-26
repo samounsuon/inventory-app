@@ -245,13 +245,16 @@ table {
     height: 70px;
     
 }
+
 th, td {
-    border: 1px solid #000;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    
     padding: 8px;
 
 }
 thead tr ,th {
-    background-color: #cac7c7;
+  background-color: #008080;
+  color: white;
 }
 
 .header-green {
@@ -274,4 +277,85 @@ td:nth-child(1){
 }
 td:nth-child(7){
     text-align: center;
+}
+
+/* Responsive Styles */
+
+@media (max-width: 430px) {
+  #nav-bar {
+    flex-direction: row;
+    padding: 5px;
+  }
+
+  #sidebar {
+    width: 30%;
+  }
+
+  .input {
+    width: 100%;
+  }
+
+  table {
+    font-size: 52px;
+  }
+
+  th,
+  td {
+    padding: 6px;
+    font-size: 10px;
+  }
+
+  .icon a>i {
+    display: none;
+
+  }
+  
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .bx {
+    display: none;
+  }
+
+  #menu-button {
+    padding: 5px;
+  }
+
+  #main-content {
+    margin-left: 30%;
+  }
+
+}
+
+@media (max-width: 768px) and (max-width: 1024px){
+  #nav-bar {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    padding: 10px;
+  }
+
+  #sideBar {
+    width: 60%;
+  }
+
+  .input {
+    width: 90%;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  th,
+  td {
+    padding: 8px;
+  }
+
+  .create-btn {
+    top: 90%;
+    left: 85%;
+  }
 }
