@@ -20,7 +20,7 @@
     />
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../css/product.css">
+    <!-- <link rel="stylesheet" href="../css/product.css"> -->
     <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="/js/home.js" defer></script>
@@ -29,28 +29,31 @@
     
     <!-- Sidebar -->
     <div id="sidebar">
-        <h1>Inventory</h1>
-          <div class="icon">
-            <div class="icon-home">
-              <a href=""><i class='bx bxs-home'></i>Home</a>
+      <h1 id="title-app">Inventory</h1>
+      <div class="icon">
+            <div class="icon-home aside-icon">
+              <a href="./home.html"><i class='bx bxs-home'></i>Home</a>
             </div>
-            <div class="icon-store">
-              <a href=""><i class='bx bxs-store'></i>Store Product</a>
+            <div class="add-product aside-icon">
+              <a href="./product.html"> <i class='bx bx bx-cart'></i>Add Product</a>
             </div>
-            <div class="icon-setout">
-              <a href=""><i class='bx bxs-archive-in'></i>Set product</a>
+            <div class="icon-store aside-icon">
+              <a href="./incoming.html"><i class='bx bxs-store'></i>Store Product</a>
             </div>
-            <div class="icon-history">
-              <a href=""><i class='bx bx-history' ></i>History</a>
+            <div class="icon-setout aside-icon">
+              <a href="./outgoing.html"><i class='bx bxs-archive-in'></i>Send out product</a>
             </div>
-          </div>
+            <div class="icon-history aside-icon">
+              <a href="./history.html"><i class='bx bx-history'></i>History</a>
+            </div>
       </div>
-  
+    </div>
       <!-- Main Content -->
       <div id="main-content">
         <nav id="nav-bar">
           <div class="nav-bar-left">
-            <button id="menu-button">☰ Menu</button>
+              <!-- <h2>Inventory</h2> -->
+              <button id="menu-button"><i class="material-icons" id="menu">menu</i></i></button>
           </div>
           <div class="nav-bar-center">
               <h2 id=""></h2>
@@ -62,6 +65,8 @@
         <div class="header">
               <h1>Welcome to MyApp</h1>
         </div>
+
+
         <div class="aside-right">
           <div class="aside-card">
               <div class="card">
@@ -84,7 +89,7 @@
                   <h2>Product</h2>
               </div>
           </div>
-          <div class="product">
+          <!-- <div class="product">
               <div class="product-alert">
                   <div class="alert-report">
                       <h3>Product increase <span>:</span></h3>
@@ -99,7 +104,7 @@
                       <h3>Quanlity <span>:</span></h3>
                   </div> 
               </div>
-          </div>
+          </div> -->
       </div>
       </div>
   </body>

@@ -11,7 +11,39 @@ body {
   color: #333;
 }
 #nav-bar{
-  height: 10vh;
+  background-color: #029588;
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 30px;
+ 
+  /* width: 100%; */
+}
+
+.nav-bar-left{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+}
+
+#uer-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  color: black;
+  border: none;
+  
+}
+#uer-icon:hover{
+  color:white    ;
+  font-size: 24px;
+}
+
+#nav-bar{
+  height: 8vh;
 
 }
 .nav-bar-left {
@@ -35,6 +67,24 @@ aside {
   height: 90vh;
   width: 100%;
 }
+#menu-button {
+  background-color: #029588;
+  color: white;
+  border: none; 
+  /* border-radius: 5px; */
+  cursor: pointer;  
+  
+
+  /* font-size:25px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+}
+
+
+
+
 .aside-bar {
   top: 10%;
   position: fixed;
@@ -53,6 +103,7 @@ aside {
   width: 100%;
   height: 70vh;
 }
+
 .aside-card {
   display: flex;
   flex-wrap: wrap;
@@ -60,6 +111,105 @@ aside {
   align-items: center;
   gap: 10px;
 }
+
+
+/* Sidebar */
+#sidebar {
+  width: 200px;
+  background-color: #008080;
+  color: white;
+  padding: 20px 0px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+#title-app{
+  text-align: center;
+}
+#sidebar.hidden {
+  transform: translateX(-100%);
+}
+
+#sidebar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#sidebar ul {
+  list-style: none;
+}
+
+#sidebar ul li {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+}
+
+#sidebar ul li i {
+  margin-right: 10px;
+}
+.icon{
+  gap: 10px;
+}
+.icon-home{
+  border-radius: 0px 10px 10px 0px;
+  background-color: #f9f9f9;  
+  a{
+    color: black;
+  }
+  
+}
+.aside-icon:hover{
+  background-color: rgb(232, 232, 232);
+  a{
+    color: black;
+    font-weight: bold;
+  }
+}
+.icon-store{
+  border-radius: 100px ;
+}
+
+.aside-icon{
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px 0px 0px 10px  ;
+  margin: 0% 0% 0% 5%;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+i{
+  margin-right: 20px;
+}
+/* Main Content */
+#main-content {
+  margin-left: 200px;
+  flex-grow: 1;
+  transition: margin-left 0.3s ease-in-out;
+  
+}
+.header{
+  padding-left: 30px;
+  margin-top: 10px;
+}
+
+#main-content.compact {
+  margin-left: 0;
+}
+
+
+
+
+
+
 .card {
   display: flex;
   flex-direction: column;
@@ -95,6 +245,7 @@ aside {
   width: 47%;
   height: 130px;
   border-radius: 10px;
+  
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
@@ -130,89 +281,6 @@ aside {
   height: 90px;
 }
 
-/* Sidebar */
-#sidebar {
-  width: 250px;
-  background-color: #2334b9;
-  color: white;
-  padding: 20px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100%;
-  transition: transform 0.3s ease-in-out;
-}
-
-#sidebar.hidden {
-  transform: translateX(-100%);
-}
-
-#sidebar .logo {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-#sidebar ul {
-  list-style: none;
-}
-
-#sidebar ul li {
-  margin: 15px 0;
-  display: flex;
-  align-items: center;
-}
-
-#sidebar ul li i {
-  margin-right: 10px;
-}
-.icon{
-  gap: 30px;
-}
-.icon-home{
-  margin-top: 20px;
-}
-.icon-setout{
-  margin-top: 20px;
-}
-.icon-store{
-  margin-top: 20px;
-}
-.icon-history{
-  margin-top: 20px;
-}
-a{
-  text-decoration: none;
-  color: white;
-}
-i{
-  margin-right: 20px;
-}
-/* Main Content */
-#main-content {
-  margin-left: 250px;
-  flex-grow: 1;
-  transition: margin-left 0.3s ease-in-out;
-}
-
-#main-content.compact {
-  margin-left: 0;
-}
-
-/* Menu Button */
-#menu-button {
-  background-color: #1a237e;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 18px;
-  margin-top: 10px;
-}
-#menu-button:hover {
-  background-color: #3e4261;
-}
 @media (max-width: 428px) {
   .aside-icon {
     display: none;
