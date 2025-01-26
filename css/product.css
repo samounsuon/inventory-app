@@ -553,9 +553,46 @@ td img {
   #upload-filde{
     border: none;
   }
-@media (max-width: 428px) {
-  .cardProductStore{
-    padding: 0px 100px;
+  @media(max-width:428px) {
+    #sidebar{
+      width: 30%;
+    }
+    #title-app{
+      display: none;
+    }
+    #main-content {
+      margin-left: 30%; 
+    }
+    table{
+      width: 50%;
+    }
+    th, td {
+      padding: 6px; 
+      font-size: 10px; 
+    }
+    #formModalProduct{
+      width: 70%;
+    }
+    i{
+      display: none;
+    }
+    .h2{
+      font-size: 16px;
+    }
+    #btn-create{
+      margin-left: -40px;
+    }
   }
-
-} 
+  
+  @media(max-width:768px){
+    #formModalProduct{
+      width: 60%;
+    }
+    #btn-create{
+      margin-left: -40px;
+    }
+    i{
+      font-size: 24px;
+    }
+  }
+  
